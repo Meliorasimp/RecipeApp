@@ -1,0 +1,17 @@
+body, html { overflow: hidden; }
+.homepage-background {
+    background: linear-gradient(to right, #CEB1BE, #E2DCDE);
+    height:100vh;
+}
+
+.homepage-text-color {
+    color: #372772;
+}
+
+.homepage-button-color {
+    background-color: #4F345A;
+}
+
+.homepage-button-color:hover {
+    background-color: #372779;
+}
