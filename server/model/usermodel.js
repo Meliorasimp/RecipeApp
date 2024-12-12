@@ -17,7 +17,6 @@ const registerUserSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        
     },
 });
 

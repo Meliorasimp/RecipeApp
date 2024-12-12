@@ -13,6 +13,17 @@ export const registerUsers = async (req, res) => {
             return res.status(400).json({ message: "Password must be at least 6 characters long" });
         }
 
+        const duplicateUserName = await registerUser.findOne({ username });
+        const duplicateEmail = await registerUser.findOne({ email });
+
+        if(duplicateUserName) {
+            return res.status(400).json({ message: "Username already exists" });
+        }
+
+        if(duplicateEmail) {
+            return res.status(400).json({ message: "Email already exists" });
+        }
+
         const hashedPassword = await bcrypt.hash(password, 12);
         const newUserData = new registerUser({ username, email, password: hashedPassword });
         await newUserData.save();
@@ -20,7 +31,7 @@ export const registerUsers = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Server error" });
+        res.status(500).json({ message: error.message });
     }
 }
 

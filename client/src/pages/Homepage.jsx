@@ -1,12 +1,18 @@
 import React from 'react'
 import '../styles/homepagestyles.css'
 import Register from '../components/Register'
+import Login from '../components/Login'
 
 const Homepage = () => {
   const [showRegister, setShowRegister] = React.useState(false)
+  const [showLogin, setShowLogin] = React.useState(false)
   
   const handleRegister = () => {
     setShowRegister(!showRegister)
+  }
+
+  const handleLogin = () => {
+    setShowLogin(!showLogin)
   }
 
   return (
@@ -21,7 +27,11 @@ const Homepage = () => {
         <img className="absolute bottom-0 right-0" src="https://www.freeiconspng.com/uploads/cuisine-food-png-8.png" width="350" alt="CUISINE food png" />
         <img className="absolute bottom-8 right-1/4" src="https://www.freeiconspng.com/uploads/restaurant-food-dish-png-10.png" width="250" alt="Restaurant Food Dish Png" />
       </div>
-      {showRegister && <Register onClose={handleRegister}/>}
+      {showRegister && <Register 
+      onClose={handleRegister}
+      onLogin={handleLogin}
+      />}
+      {showLogin && <Login />}
     </div>
   )
 }
