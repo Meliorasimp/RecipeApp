@@ -21,7 +21,7 @@ const Homepage = () => {
         <img className="absolute bottom-0 right-0" src="https://www.freeiconspng.com/uploads/cuisine-food-png-8.png" width="350" alt="CUISINE food png" />
         <img className="absolute bottom-8 right-1/4" src="https://www.freeiconspng.com/uploads/restaurant-food-dish-png-10.png" width="250" alt="Restaurant Food Dish Png" />
       </div>
-      {showRegister && <Register />}
+      {showRegister && <Register onClose={handleRegister}/>}
     </div>
   )
 }
