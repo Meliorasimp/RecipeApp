@@ -36,23 +36,28 @@ export const registerUsers = async (req, res) => {
 }
 
 export const loginUsers = async (req, res) => {
-    const {email, password} = req.body;
-
+    const { email, password } = req.body;
     if(!email || !password) {
         return res.status(400).json({ message: "Please fill in all fields" });
     }
 
-    const userEmail = await registerUser.findOne({ email });
-    if(!userEmail) {
+    const user = await registerUser.findOne({ email });
+    if(!user) {
         return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const userPassword = await bcrypt.compare(password, userEmail.password);
+    const userPassword = await bcrypt.compare(password, user.password);
     if(!userPassword) {
         return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    if(userEmail && userPassword) {
-        res.status(200).json({ message: "User logged in successfully" });
+    if(user && userPassword) {
+        res.status(200).json({ message: "User logged in successfully",
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email
+            }
+         });
     }
 }

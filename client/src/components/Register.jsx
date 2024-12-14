@@ -40,7 +40,7 @@ const Register = ({onClose, onLogin}) => {
             progress: undefined,
           });
 
-          navigate('/dashboard');
+          navigate(`/dashboard/${username}`);
           onClose()
         }
     }
