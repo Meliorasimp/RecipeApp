@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+
   const Navigate = useNavigate()
 
   const handleLoginSubmit = async(e) => {
@@ -29,6 +30,8 @@ const Login = () => {
           progress: undefined,
         })
         const usernameurl = response.data.user.username
+        localStorage.setItem('username', usernameurl)
+        
         Navigate(`/dashboard/${usernameurl}`)
       }
     }
