@@ -31,7 +31,9 @@ const Homepage = () => {
       onClose={handleRegister}
       onLogin={handleLogin}
       />}
-      {showLogin && <Login />}
+      {showLogin && <Login 
+      onLogin={handleLogin}
+      />}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import registerRoute from './routes/userroute.js';
+import userprofileRoute from './routes/userprofileroute.js';
 const app = express();
 
 dotenv.config();
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/user', registerRoute);
+app.use('/userprofile', userprofileRoute);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))

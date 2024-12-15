@@ -41,7 +41,7 @@ const Register = ({onClose, onLogin}) => {
           });
 
           navigate(`/dashboard/${username}`);
-          onClose()
+          onLogin()
         }
     }
     catch (error) {
