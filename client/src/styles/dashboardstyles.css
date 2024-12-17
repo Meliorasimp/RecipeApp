@@ -5,3 +5,16 @@
 .dashboard-userprofile-background {
     background-color: #E2C8CF;
 }
+
+.dashboard-body-background {
+    background-color: #F3E3E7;
+}
+
+.dashboard-card-background { 
+    background-color: #C8A5B5; 
+}
+
+.scale-animation:hover {
+    transition: transform 0.5s;
+    transform: scale(1.05);
+}

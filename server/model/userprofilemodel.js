@@ -28,6 +28,7 @@ const userprofileSchema = new mongoose.Schema({
     facebookurl: {
         type: String,
     },
+        
 })
 
 const userprofilemodel = new mongoose.model('userprofile', userprofileSchema);
