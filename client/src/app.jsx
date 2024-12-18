@@ -10,7 +10,7 @@ import AppetizerEditor from './pages/AppetizerEditor';
 const App = () => {
   const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
 
-  const usernameurl = usersdata.replace(/\s+/g, "-");
+  const usernameurl = usersdata.replace(/\s+/g, '-');
 
   const handleLogin = () => {
     localStorage.setItem('username', usersdata);
