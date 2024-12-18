@@ -5,16 +5,17 @@ import Userprofile from './pages/Userprofile';
 import Navbar from './components/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AppetizerEditor from './pages/AppetizerEditor';
 
 const App = () => {
-  const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '')
+  const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
 
-  const usernameurl = usersdata.replace(/\s+/g, " ")
+  const usernameurl = usersdata.replace(/\s+/g, "-");
 
   const handleLogin = () => {
     localStorage.setItem('username', usersdata);
     setUsersdata(usersdata);
-  }
+  };
 
   return (
     <div>
@@ -22,12 +23,15 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element={<Homepage onLogin={handleLogin} />} />
-          {usersdata && (
-           <Route path={`/dashboard/${usernameurl}`} element={<Userprofile />} />
+          {usersdata ? (
+            <>
+              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile />} />
+              <Route path={`/dashboard/${usernameurl}/appetizeredit`} element={<AppetizerEditor />} />
+            </>
+          ) : (
+            <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
           )}
-
-          {!usersdata && (<Route path="*" element={<div>Please log in to access the dashboard.</div>} />
-           )}
+          <Route path='/appetizeredit' element={<AppetizerEditor />} />
         </Routes>
         <ToastContainer />
       </BrowserRouter>
@@ -36,4 +40,3 @@ const App = () => {
 }
 
 export default App;
-
