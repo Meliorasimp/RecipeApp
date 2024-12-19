@@ -3,7 +3,7 @@ import { ChefHat } from 'lucide-react'
 
 const Create = ({appetizerClick}) => {
   return (
-    <div className='flex justify-start items-start flex-col h-screen w-11/12 gap-12'>
+    <div className='flex justify-start items-start flex-col h-screen w-10/12 gap-12'>
         <div className='ml-4 w-full h-12 text-gray-600 flex-col items-center gap-2 pt-16'>
           <h1 className='text-3xl font-bold flex items-center'>Select a Recipe Category to Create.<ChefHat size={36} className='ml-3'/></h1>
         </div>
