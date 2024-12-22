@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/dashboardstyles.css';
-import { Bar } from 'react-chartjs-2';
 import BarGraph from './BarGraph';
 
 const MonthlyLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -21,22 +20,22 @@ const Dashboard = () => {
         </div>
         <div className='col-start-1 col-span-3 bg-blue-400 row-start-3 row-span-2 rounded-lg shadow-md'>
           <h1 className='mt-4 ml-4 font-bold'>Total User Score</h1>
-          <h1 className='ml-4 text-3xl font-bold font-sans text-yellow-200'>1</h1>
+          <h1 className='ml-4 text-3xl font-bold font-sans text-yellow-200'>0</h1>
         </div>
         <div className='col-start-4 col-span-3 bg-blue-500 row-start-3 row-span-2 rounded-lg shadow-md'>
           <h1 className='mt-4 ml-4 font-bold'>Total Recipes Made</h1>
-          <h1 className='ml-4 text-3xl font-bold font-sans text-yellow-200'>2</h1>
+          <h1 className='ml-4 text-3xl font-bold font-sans text-yellow-200'>0</h1>
         </div>
         <div className='col-start-7 col-span-4 bg-green-500 row-start-1 row-span-4 rounded-lg shadow-md'>
           <h1 className='mt-4 ml-4 font-bold text-xl mb-5'>Did you know That?</h1>
           <h1 className='text-center'>The headline is often written last. Despite being the first thing readers see, writers often craft the headline after the article is complete to ensure it perfectly encapsulates the story.</h1>
         </div>
-        <div className='col-start-7 col-span-4 bg-gray-500 row-start-5 row-span-3 rounded-lg shadow-md'>
+        <div className='col-start-7 col-span-4 bg-green-400 row-start-5 row-span-3 rounded-lg shadow-md'>
           <h1 className='mt-4 ml-4 font-bold text-xl'>Recently Published</h1>
           <h1>(Recipe Title)</h1>
           <h1>(Date Created)</h1>
         </div>
-        <div className='col-start-7 col-span-4 bg-gray-500 row-start-8 row-span-3 rounded-lg shadow-md'>
+        <div className='col-start-7 col-span-4 bg-green-400 row-start-8 row-span-3 rounded-lg shadow-md'>
         </div>
         <div className='col-start-1 col-span-6 row-start-5 row-span-6 bg-blue-300 rounded-lg shadow-md'>
           <h1 className='mt-2 ml-2 font-bold'>Statistical Overview</h1>

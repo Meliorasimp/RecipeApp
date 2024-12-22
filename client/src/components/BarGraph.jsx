@@ -11,7 +11,7 @@ const BarGraph = ({ data, labels }) => {
       {
         label: 'Number of Recipes',
         data: data,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        backgroundColor: 'rgba(0, 200, 0, 1)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
       },

@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/dashboardstyles.css';
 import axios from 'axios';  
-import { User, LayoutDashboard, Star, Send, LogOut, ChefHat } from 'lucide-react';
+import { User, LayoutDashboard, Star, Send, LogOut, ChefHat, View } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Create from '../components/Create';  
 import Dashboard from '../components/Dashboard';
 import Favorites from '../components/Favorites';
 import MyRecipes from '../components/MyRecipes';
+import UserRecipes from '../components/UserRecipes';
 
 const Userprofile = () => {
   const [image, setImage] = React.useState('');
@@ -16,6 +17,7 @@ const Userprofile = () => {
   const [isDashboardClicked, setIsDashboardClicked] = React.useState(true);
   const [isFavoritesClicked, setIsFavoritesClicked] = React.useState(false);
   const [isMyRecipesClicked, setIsMyRecipesClicked] = React.useState(false);
+  const [isUserRecipesClicked, setIsUserRecipesClicked] = React.useState(false);
   const [category, setCategory] = React.useState(null);
   const username = localStorage.getItem('username');
   const navigate = useNavigate();
@@ -44,7 +46,8 @@ const Userprofile = () => {
 
   const handleCreateClick = () => {
     setIsDashboardClicked(false);
-    setIsDashboardClicked(false);
+    setIsFavoritesClicked(false);
+    setIsUserRecipesClicked(false);
     setIsMyRecipesClicked(false);
     setIsCreateClicked(true);
   }
@@ -53,6 +56,7 @@ const Userprofile = () => {
     setIsCreateClicked(false);
     setIsMyRecipesClicked(false);
     setIsFavoritesClicked(false);
+    setIsUserRecipesClicked(false);
     setIsDashboardClicked(true);
   }
 
@@ -60,6 +64,7 @@ const Userprofile = () => {
     setIsCreateClicked(false);
     setIsDashboardClicked(false);
     setIsMyRecipesClicked(false);
+    setIsUserRecipesClicked(false);
     setIsFavoritesClicked(true);
   }
 
@@ -67,7 +72,16 @@ const Userprofile = () => {
     setIsCreateClicked(false);
     setIsDashboardClicked(false);
     setIsFavoritesClicked(false);
+    setIsUserRecipesClicked(false);
     setIsMyRecipesClicked(true);
+  }
+
+  const handleUserRecipesClick = () => {
+    setIsCreateClicked(false);
+    setIsDashboardClicked(false);
+    setIsFavoritesClicked(false);
+    setIsMyRecipesClicked(false);
+    setIsUserRecipesClicked(true);
   }
 
   const handleAppetizerClick = () => {
@@ -84,6 +98,7 @@ const Userprofile = () => {
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleCreateClick}><ChefHat size={28} color='black'/>Create</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleFavoritesClick}><Star size={28} color='black'/>Favorites</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleMyRecipesClick}><Send size={28} color='black'/>My Recipe</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleUserRecipesClick}><View size={28} color='black'/>View</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer'><LogOut size={24} color='black' className='mr-4'/>Logout q</h1>
         </div>
       </div>
@@ -93,6 +108,7 @@ const Userprofile = () => {
       {isDashboardClicked && <Dashboard />}
       {isFavoritesClicked && <Favorites />}
       {isMyRecipesClicked && <MyRecipes />}
+      {isUserRecipesClicked && <UserRecipes />}
     </div>
   );
 };
