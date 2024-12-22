@@ -29,7 +29,8 @@ const Login = ({onLogin}) => {
           draggable: true,
           progress: undefined,
         })
-        const usernameurl = response.data.user.username
+        const usernameurl = response.data.user.username;
+        localStorage.setItem('userid', response.data.user.id)
         localStorage.setItem('username', usernameurl)
         
         Navigate(`/dashboard/${usernameurl}`)

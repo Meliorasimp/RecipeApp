@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import registerRoute from './routes/userroute.js';
 import userprofileRoute from './routes/userprofileroute.js';
+import articleRoute from './routes/articleroute.js';
 const app = express();
 
 dotenv.config();
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use('/user', registerRoute);
 app.use('/userprofile', userprofileRoute);
+app.use('/article', articleRoute);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))

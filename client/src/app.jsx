@@ -31,7 +31,7 @@ const App = () => {
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
           )}
-          <Route path='/appetizeredit' element={<AppetizerEditor />} />
+          <Route path='/editor' element={<AppetizerEditor />} />
         </Routes>
         <ToastContainer />
       </BrowserRouter>

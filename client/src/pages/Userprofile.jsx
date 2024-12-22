@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/dashboardstyles.css';
 import axios from 'axios';  
-import { User, LayoutDashboard, Star, Send, LogOut, ChefHat, View } from 'lucide-react';
+import { LayoutDashboard, Star, Send, LogOut, ChefHat, View } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Create from '../components/Create';  
 import Dashboard from '../components/Dashboard';
@@ -84,12 +84,6 @@ const Userprofile = () => {
     setIsUserRecipesClicked(true);
   }
 
-  const handleAppetizerClick = () => {
-    setCategory('Appetizers');
-    navigate('/appetizeredit');
-  }
-
-
   return (
     <div className='flex justify-start items-center dashboard-body-background'>
       <div className='flex justify-start flex-col items-start h-screen w-32 rounded-xl dashboard-userprofile-background pt-5'>
@@ -102,9 +96,7 @@ const Userprofile = () => {
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer'><LogOut size={24} color='black' className='mr-4'/>Logout q</h1>
         </div>
       </div>
-      {isCreateClicked && <Create 
-      appetizerClick={handleAppetizerClick}
-      />}
+      {isCreateClicked && <Create />}
       {isDashboardClicked && <Dashboard />}
       {isFavoritesClicked && <Favorites />}
       {isMyRecipesClicked && <MyRecipes />}
