@@ -9,24 +9,70 @@ const AppetizerEditor = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [outputImage, setOutputImage] = useState(null);
-  const [processedImage, setProcessedImage] = useState(null);
 
   const date = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const today = date.toLocaleDateString('en-PH', options);
   const category = localStorage.getItem('category');
-  const authorId = localStorage.getItem('id'); // Use 'id' instead of '_id'
+  const author = localStorage.getItem('user'); 
 
+  const handleImageChange = (e) => {
+    const imageFile = e.target.files[0];
+    setOutputImage(imageFile);
+  };
 
   const handleSubmitArticle = async (e) => {
     e.preventDefault();
+    
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('body', body);
+    formData.append('category', category);
+    formData.append('image', outputImage);
+    formData.append('createdAt', today);
+    formData.append('author', author);
+
+    // Log FormData content
+    for (let pair of formData.entries()) {
+      console.log(`${pair[0]}: ${pair[1]}`);
+    }
+
+    try {
+      const response = await axios.post('http://localhost:3000/article/create', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      if (response.status === 201) {
+        toast.success('Article created successfully!', {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+        setTitle('');
+        setBody('');
+        setOutputImage(null);
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        toast.error(error.response.data.message);
+        console.log(error.response.data.message);
+      } else {
+        console.log('Something went wrong. Please try again later.');
+      }
+    }
   };
 
   return (
     <div className='appetizer-main-background-color h-screen overflow-y-auto'>
       <div className='flex justify-center items-center min-h-screen'>
         <div className='w-5/6 mt-10'>
-          <form className='grid grid-cols-4 grid-rows-5 gap-2'>
+          <form className='grid grid-cols-4 grid-rows-5 gap-2' onSubmit={handleSubmitArticle}>
             <div className='col-start-1 col-span-2 row-start-1 row-span-1 mb-5'>
               <h1 className='text-black text-2xl font-bold mb-5'>Recipe Title</h1>
               <input
@@ -47,8 +93,7 @@ const AppetizerEditor = () => {
             </div>
             <div className='col-start-3 col-span-1'>
               <h1 className='text-black text-2xl font-bold'>Output Image</h1>
-              <input type="file" className='text-black' />
-              <button type='button' className='bg-gray-600 px-5 py-2'>Upload Image</button>
+              <input type="file" className='text-black' onChange={handleImageChange}/>
             </div>
           </form>
         </div>

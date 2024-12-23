@@ -30,7 +30,7 @@ const Login = ({onLogin}) => {
           progress: undefined,
         })
         const usernameurl = response.data.user.username;
-        localStorage.setItem('userid', response.data.user.id)
+        localStorage.setItem('user', response.data.user.id)
         localStorage.setItem('username', usernameurl)
         
         Navigate(`/dashboard/${usernameurl}`)
