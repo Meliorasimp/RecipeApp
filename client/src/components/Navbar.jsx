@@ -8,7 +8,7 @@ const Navbar = () => {
     navigate('/');
   }
   return (
-    <div className='navbar-background'>
+    <div className='navbar-background z-50'>
       <div className='flex justify-between items-center m-2'>
         <h1 className='font-bold text-xl ml-2 cursor-pointer' onClick={handleHomePageClick}>Épicurienne</h1>
         <div className='flex gap-5 mr-2 '>

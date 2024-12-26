@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import '../styles/appetizereditor.css';
 import 'react-quill/dist/quill.snow.css';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AppetizerEditor = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [outputImage, setOutputImage] = useState(null);
+  const navigate = useNavigate();
 
   const date = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const today = date.toLocaleDateString('en-PH', options);
   const category = localStorage.getItem('category');
   const author = localStorage.getItem('user'); 
+  const username = localStorage.getItem('username');
 
   const handleImageChange = (e) => {
     const imageFile = e.target.files[0];
     setOutputImage(imageFile);
+  };
+
+  const handleNavigate = () => {
+    navigate(`/dashboard/${username}`);
   };
 
   const handleSubmitArticle = async (e) => {
@@ -57,6 +64,8 @@ const AppetizerEditor = () => {
         setTitle('');
         setBody('');
         setOutputImage(null);
+        handleNavigate();
+
       }
     } catch (error) {
       if (error.response && error.response.data) {

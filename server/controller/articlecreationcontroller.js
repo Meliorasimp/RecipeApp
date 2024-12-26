@@ -16,9 +16,21 @@ export const createArticle = async (req, res) => {
 
 export const getArticlesByUser = async (req, res) => {
     try {
-        const article = await ArticleCreationModel.find().populate('author');
+        const article = await ArticleCreationModel.find().populate('author', 'username');
         res.status(200).json(article);
 
+    }
+    catch(error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
+export const deleteOneArticle = async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        await ArticleCreationModel.findByIdAndDelete(id);
+        res.status(200).json({message: "Article Deleted Successfully"});
     }
     catch(error) {
         res.status(404).json({message: error.message});
