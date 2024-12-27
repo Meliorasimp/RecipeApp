@@ -4,9 +4,11 @@ import '../styles/appetizereditor.css';
 import 'react-quill/dist/quill.snow.css';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useArticleStore } from '../store/registerstore.js';
 import axios from 'axios';
 
 const AppetizerEditor = () => {
+  const { addArticle } = useArticleStore();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [outputImage, setOutputImage] = useState(null);
@@ -64,7 +66,7 @@ const AppetizerEditor = () => {
         setBody('');
         setOutputImage(null);
         handleNavigate();
-
+        addArticle(response.data);  
       }
     } catch (error) {
       if (error.response && error.response.data) {

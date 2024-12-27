@@ -6,12 +6,13 @@ import DeleteModal from './DeleteModal.jsx';
 import axios from 'axios';
 
 const MyRecipes = () => {
+  const { setArticles, articles } = useArticleStore();
   const [recipes, setRecipes] = useState([]);
   const loggedInUser = localStorage.getItem('username');
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   const [id , setId] = useState('');
   const [recipeTitle, setRecipeTitle] = useState('');
-  const { addArticle, articles } = useArticleStore();
+
 
   const handleDelete = async (id, title) => {
     setIsDeleteClicked(!isDeleteClicked);
@@ -28,8 +29,8 @@ const MyRecipes = () => {
       try {
         const response = await axios.get('http://localhost:3000/article/getByUser');
         if (response.status === 200) {
-          setRecipes(response.data);
-          addArticle(response.data);
+          setArticles(response.data);
+          console.log(response.data);
         }
       } catch (error) {
         console.error('Error fetching recipes:', error);
@@ -37,9 +38,9 @@ const MyRecipes = () => {
     };
 
     getRecipesByUser();
-  }, [addArticle]);
+  }, []);
 
-  const filteredRecipes = recipes.filter((item) => item.author.username === loggedInUser);
+  const filteredRecipes = articles.filter((item) => item.author.username === loggedInUser);
 
   return (
     <div className="flex flex-col items-start justify-start h-screen w-11/12 gap-12 ">
