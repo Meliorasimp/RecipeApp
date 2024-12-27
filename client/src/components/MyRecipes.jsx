@@ -11,7 +11,7 @@ const MyRecipes = () => {
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   const [id , setId] = useState('');
   const [recipeTitle, setRecipeTitle] = useState('');
-  const { addArticle } = useArticleStore();
+  const { addArticle, articles } = useArticleStore();
 
   const handleDelete = async (id, title) => {
     setIsDeleteClicked(!isDeleteClicked);

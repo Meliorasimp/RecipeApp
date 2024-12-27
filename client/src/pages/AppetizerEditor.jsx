@@ -39,7 +39,6 @@ const AppetizerEditor = () => {
     formData.append('createdAt', today);
     formData.append('author', author);
 
-    // Log FormData content
     for (let pair of formData.entries()) {
       console.log(`${pair[0]}: ${pair[1]}`);
     }

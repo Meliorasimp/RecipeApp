@@ -8,5 +8,5 @@ export const useRegisterStore = create((set) => ({
 export const useArticleStore = create((set) => ({
     articles: [],
     addArticle:(article) => set((state) => ({articles: [...state.articles, article]})),
-    deleteArticle:(id) => set((state) => ({articles: state.articles.filter(article => article._id !== id)}))
+    deleteArticle:(id) => set((state) => ({articles: state.articles.filter(article => article._id !== id)})),
 }))

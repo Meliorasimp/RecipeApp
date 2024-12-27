@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { useArticleStore } from '../store/registerstore.js';
 
 const DeleteModal = ({ id, title, handleClose }) => {
+
     const { deleteArticle } = useArticleStore();
     
     const handleDeleteClick = async () => {
