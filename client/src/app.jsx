@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AppetizerEditor from './pages/AppetizerEditor';
+import Cuisines from './pages/Cuisines';
 
 const App = () => {
   const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
           )}
           <Route path='/editor' element={<AppetizerEditor />} />
+          <Route path='/cuisines' element={<Cuisines />}></Route>
         </Routes>
         <ToastContainer />
       </BrowserRouter>
