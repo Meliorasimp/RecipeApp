@@ -6,19 +6,28 @@ const Cuisines = () => {
     <div className='homepage-background flex justify-center items-center relative flex-col'>
         <h1 className='mb-4 mt-4 absolute top-12 homepage-text-color font-bold text-2xl'>Explore the Flavors of the World</h1>
         <div className='h-4/5 w-11/12 flex flex-wrap justify-evenly items-center mt-14'>
-        <div className='h-4/5 w-2/5 bg-slate-100 rounded-xl shadow-2xl'>
-            <div className='bg-yellow-300 h-2/3 w-full'>
-                <img src="./mixed-seafood-paella.jpg" alt="" className='h-full w-full object-cover rounded-tl-xl rounded-tr-xl'/>
+          <div className='group h-4/5 w-2/5 [perspective: 1000px]'>
+            <div className='relative h-full w-full rounded-xl shadow-xl [transform-style: preserve-3d] group-hover:[transform:rotateY(180deg)] transition-all duration-700'>
+              <div className='absolute inset-0'>
+                <img src="./mixed-seafood-paella.jpg" alt="dasd" className='h-2/3 w-full  rounded-xl object-cover shadow-black/40'/>
+                <h1 className='mt-2 ml-2 text-black text-xl font-bold'>Spanish Cuisine</h1>
+                <p className='ml-2 mr-2 text-black'>short intro for spanish cuisine
+                Spanish cuisine is a delightful blend of vibrant flavors, rich history, and diverse ingredients. It emphasizes fresh, high-quality produce, with key elements including olive oil, garlic, tomatoes, and saffron.</p>
+              </div>
+              <div className='absolute inset-0 rounded-xl bg-black/40 flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden]'>  
+                <div className='flex'>
+                  <h1>Hello World</h1>
+                </div>
+              </div>
             </div>
-            <h1 className='mt-2 ml-2 mb-2 text-black text-2xl font-bold'>Spanish Cuisine</h1>
-           <div className='flex flex-row relative'>
-                <p className='text-black mr-2 ml-2 w-80'>Spanish cuisine is a tapestry of vibrant flavors, colorful presentations, and rich culinary traditions</p>
-                <button className='text-black absolute right-10 top-5 hover:text-slate-500'>View More >></button>
-           </div>
-        </div>
-        <div className='h-4/5 w-2/5 bg-slate-100 rounded-xl shadow-2xl'>
-            <h1 className='mt-2 ml-2 homepage-text-color text-2xl font-bold'>Italian Cuisine</h1>
-        </div>
+          </div>
+          <div className='group h-4/5 w-2/5 [perspective: 1000px]'>
+            <div className='relative h-full w-full rounded-xl shadow-xl [transform-style: preserve-3d] group-hover:[transform:rotateY(180deg)] transition-all duration-500'>
+              <div className='absolute inset-0'>
+                <img src="./mixed-seafood-paella.jpg" alt="dasd" className='h-2/3 w-full  rounded-xl object-cover shadow-black/40'/>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   )
