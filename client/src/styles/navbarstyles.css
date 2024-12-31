@@ -1,5 +1,5 @@
 .navbar-background {
-    background-color: #4F345A;
+    border-bottom: 1px solid #292929;
     position: fixed;
     width: 100%;
 }

@@ -5,29 +5,59 @@ const Cuisines = () => {
   return (
     <div className='homepage-background flex justify-center items-center relative flex-col'>
         <h1 className='mb-4 mt-4 absolute top-12 homepage-text-color font-bold text-2xl'>Explore the Flavors of the World</h1>
-        <div className='h-4/5 w-11/12 flex flex-wrap justify-evenly items-center mt-14'>
-          <div className='group h-4/5 w-2/5 [perspective: 1000px]'>
-            <div className='relative h-full w-full rounded-xl shadow-xl [transform-style: preserve-3d] group-hover:[transform:rotateY(180deg)] transition-all duration-700'>
-              <div className='absolute inset-0'>
-                <img src="./mixed-seafood-paella.jpg" alt="dasd" className='h-2/3 w-full  rounded-xl object-cover shadow-black/40'/>
-                <h1 className='mt-2 ml-2 text-black text-xl font-bold'>Spanish Cuisine</h1>
-                <p className='ml-2 mr-2 text-black'>short intro for spanish cuisine
-                Spanish cuisine is a delightful blend of vibrant flavors, rich history, and diverse ingredients. It emphasizes fresh, high-quality produce, with key elements including olive oil, garlic, tomatoes, and saffron.</p>
-              </div>
-              <div className='absolute inset-0 rounded-xl bg-black/40 flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden]'>  
-                <div className='flex'>
-                  <h1>Hello World</h1>
-                </div>
-              </div>
-            </div>
+      <div className='flex justify-center items-center flex-col h-3/4 mt-10 w-3/4 gap-10'>
+        <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Spanish Cuisine</h1>
           </div>
-          <div className='group h-4/5 w-2/5 [perspective: 1000px]'>
-            <div className='relative h-full w-full rounded-xl shadow-xl [transform-style: preserve-3d] group-hover:[transform:rotateY(180deg)] transition-all duration-500'>
-              <div className='absolute inset-0'>
-                <img src="./mixed-seafood-paella.jpg" alt="dasd" className='h-2/3 w-full  rounded-xl object-cover shadow-black/40'/>
-              </div>
-            </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Japanese Cuisine</h1>
           </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Italian Cuisine</h1>
+          </div>
+        </div>
+        <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Indian Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Chinese Cuisine</h1>
+          </div>
+        </div>
+        <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>French Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Mexican Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Greek Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Thai Cuisine</h1>
+          </div>
+        </div>
+        <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Korean Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>American Cuisine</h1>
+          </div>
+        </div>
+        <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl font-bold hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Philippines Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Peruvian Cuisine</h1>
+          </div>
+          <div>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Ethiopian Cuisine</h1>
+          </div>
+        </div>
       </div>
     </div>
   )
