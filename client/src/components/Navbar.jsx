@@ -15,12 +15,12 @@ const Navbar = () => {
     <div className='navbar-background z-50'>
       <div className='flex justify-between items-center m-2'>
         <h1 className='font-bold text-xl ml-10 cursor-pointer' onClick={handleHomePageClick}>Épicurienne</h1>
-        <div className='flex gap-5 mr-2 justify-center items-center'>
-            <h1 className='cursor-pointer hover:text-orange-300'>Top Rated Recipes</h1>
-            <h1 className='cursor-pointer hover:text-orange-300' onClick={handleCuisineClick}>Cuisines</h1>
-            <h1 className='cursor-pointer hover:text-orange-300'>About</h1>
-            <h1 className='cursor-pointer hover:text-orange-300'>Features</h1>
-            <h1 className='cursor-pointer hover:text-orange-300'>Changelog</h1>
+        <div className='flex gap-10 mr-2 justify-center items-center'>
+            <h1 className='cursor-pointer hover:text-orange-300'> &#x25BC; Top Rated Recipes</h1>
+            <h1 className='cursor-pointer hover:text-orange-300' onClick={handleCuisineClick}>&#x25BC; Cuisines</h1>
+            <h1 className='cursor-pointer hover:text-orange-300'>&#x25BC; About</h1>
+            <h1 className='cursor-pointer hover:text-orange-300'>&#x25BC; Features</h1>
+            <h1 className='cursor-pointer hover:text-orange-300'>&#x25BC; Changelog</h1>
         </div>
         <div>
           <h1 className='mr-10'>Log-in</h1>

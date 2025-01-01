@@ -1,14 +1,16 @@
-import React from 'react'
+import NavigationHook from '../hooks/Navigationhook'
 import '../styles/homepagestyles.css'
 
 const Cuisines = () => {
+  const navigate = NavigationHook()
+
   return (
     <div className='homepage-background flex justify-center items-center relative flex-col'>
-        <h1 className='mb-4 mt-4 absolute top-12 homepage-text-color font-bold text-2xl'>Explore the Flavors of the World</h1>
+        <h1 className='mb-4 mt-4 absolute top-12 homepage-text-color font-bold text-3xl'>Explore the <span className='text-yellow-300'>Flavors</span> of the World</h1>
       <div className='flex justify-center items-center flex-col h-3/4 mt-10 w-3/4 gap-10'>
         <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
           <div>
-            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Spanish Cuisine</h1>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300' onClick={() => navigate('/cuisines/spanish')}>Spanish Cuisine</h1>
           </div>
           <div>
             <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Japanese Cuisine</h1>
