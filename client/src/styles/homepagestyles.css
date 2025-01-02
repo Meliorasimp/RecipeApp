@@ -9,6 +9,9 @@ body, html {
     width: 100vw;
 }
 
+.homepage-second-background {
+    background-color: #292929;
+}
 .backface-hidden {
     backface-visibility: hidden;
 }
@@ -24,4 +27,8 @@ body, html {
 
 .homepage-button-color:hover {
     background-color: #372779;
+}
+
+.negative-z-index {
+    z-index: -1;
 }

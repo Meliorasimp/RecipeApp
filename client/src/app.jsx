@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AppetizerEditor from './pages/AppetizerEditor';
 import Cuisines from './pages/Cuisines';
+import Spanish from './pages/cuisinepages/Spanish';
 
 const App = () => {
   const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
@@ -34,6 +35,7 @@ const App = () => {
           )}
           <Route path='/editor' element={<AppetizerEditor />} />
           <Route path='/cuisines' element={<Cuisines />}></Route>
+          <Route path='/cuisines/spanish' element={<Spanish />}></Route>
         </Routes>
         <ToastContainer />
       </BrowserRouter>
