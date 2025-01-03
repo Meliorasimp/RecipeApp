@@ -1,7 +1,12 @@
+body, html {
+    position: relative;
+}
 .navbar-background {
+    background: #000;
     border-bottom: 1px solid #292929;
     position: fixed;
     width: 100%;
+    z-index: 100;
 }
 
 .cuisine-dropdown {

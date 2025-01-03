@@ -1,5 +1,5 @@
 body, html { 
-    overflow: hidden; 
+    overflow: auto; 
 }
 .homepage-background {
     background-color: #141414;
@@ -31,4 +31,13 @@ body, html {
 
 .negative-z-index {
     z-index: -1;
+}
+
+.ordered-list {
+    list-style-type: number;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
 }
