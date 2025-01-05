@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const MyRecipes = () => {
   const { setArticles, articles } = useArticleStore();
-  const [recipes, setRecipes] = useState([]);
   const loggedInUser = localStorage.getItem('username');
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   const [id , setId] = useState('');

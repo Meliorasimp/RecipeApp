@@ -17,6 +17,15 @@ const Navbar = () => {
     navigate('/cuisines/spanish');
   }
 
+  const handleJapaneseCuisineClick = () => {
+    navigate('/cuisines/japanese');
+  }
+
+  const handleItalianCuisineClick = () => {
+    navigate('/cuisines/italian');
+  }
+
+
   return (
     <div className='navbar-background z-50'>
       <div className='flex justify-between items-center m-2'>
@@ -34,12 +43,12 @@ const Navbar = () => {
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  handleJapaneseCuisineClick();
                 }}><LeafyGreen className='mr-2'/>Japanese Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  handleItalianCuisineClick();
                 }}><Pizza className='mr-2'/>Italian Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {

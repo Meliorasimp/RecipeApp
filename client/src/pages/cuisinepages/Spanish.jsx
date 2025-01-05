@@ -22,9 +22,11 @@ const dishes = [
     
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const itemsToShow = 2;
-    const totalItems = 10;
     const slicedArray = dishes.slice(currentIndex, currentIndex + itemsToShow);
 
+    const handleJapaneseCuisineClick = () => {
+        window.location.href = '/cuisines/japanese';
+    }
 
     return (
         <div className='flex pt-16 homepage-background overflow-y-auto negative-z-index'>
@@ -51,7 +53,7 @@ const dishes = [
                             Spanish chefs and home cooks alike understand that when you start with the best produce, you need little else to create a memorable dish.</p>
                     </div>
                     <div className='mb-10'>
-                        <h1 className='text-xl font-bold mb-2' id='ingredients'>Most Used Ingredients in Spain</h1>
+                        <h1 className='text-xl font-bold mb-2' id='ingredients'>Essential Ingredients in Spain</h1>
                         <p className='indent-12 mb-4'>Spanish cuisine is a delightful mix of flavors, largely influenced by regional ingredients and traditions. Here are some of the most commonly used ingredients in Spanish cooking:</p>
                         <ol className='flex flex-col gap-3'>
                             <li>
@@ -117,6 +119,11 @@ const dishes = [
                             Beyond its delicious flavors, Spanish food plays a crucial role in social and family life, emphasizing the importance of communal dining 
                             and cultural festivities. Spanish cuisine invites the world to experience its warmth and heritage through its diverse and flavorful dishes.
                         </p>
+
+                        <div className='relative'>
+                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute right-10 hover:text-orange-300' onClick={handleJapaneseCuisineClick}>Japanese Cuisine &rarr;</button>
+                        </div>
+                                
                     </div>
                 </div>
                 <div className='w-1/5 fixed right-10'>
@@ -132,7 +139,7 @@ const dishes = [
                             <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('ingredients')}>Ingredients</h1>
                         </div>
                         <div className='w-full h-12 homepage-second-background hover:bg-white hover:text-black transition-all duration-300'>
-                            <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('dishes')}>Famous Dishes</h1>
+                            <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('dishes')}>Famous Spanish Dishes</h1>
                         </div>
                         <div className='w-full h-12 homepage-second-background hover:bg-white hover:text-black transition-all duration-300'>
                             <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('conclusion')}>Conclusion</h1>

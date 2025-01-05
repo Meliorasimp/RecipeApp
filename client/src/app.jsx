@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import AppetizerEditor from './pages/AppetizerEditor';
 import Cuisines from './pages/Cuisines';
 import Spanish from './pages/cuisinepages/Spanish';
+import Japanese from './pages/cuisinepages/Japanese';
+import Italian from './pages/cuisinepages/Italian';
 
 const App = () => {
   const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
@@ -35,7 +37,9 @@ const App = () => {
           )}
           <Route path='/editor' element={<AppetizerEditor />} />
           <Route path='/cuisines' element={<Cuisines />}></Route>
-          <Route path='/cuisines/spanish' element={<Spanish />}></Route>
+          <Route path='/cuisines/spanish' element={<Spanish />}></Route>  
+          <Route path='/cuisines/japanese' element={<Japanese />}></Route>
+          <Route path='/cuisines/italian' element={<Italian />}></Route>
         </Routes>
         <ToastContainer />
       </BrowserRouter>
