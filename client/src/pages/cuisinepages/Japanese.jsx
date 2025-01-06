@@ -8,16 +8,16 @@ const Japanese = () => {
     const today = date.toLocaleDateString('en-PH', options);
 
 const dishes = [ 
-    { id: 1, title: 'Sushi', description: 'Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanying a variety of ingredients such as seafood, vegetables, and occasionally tropical fruits.', image: '../images/sushi.avif' },
-    { id: 2, title: 'Ramen', description: 'Ramen is a Japanese noodle soup. It consists of Chinese-style wheat noodles served in a meat- or fish-based broth, often flavored with soy sauce or miso, and uses toppings such as sliced pork', image: '../images/ramen.avif' },
-    { id: 3, title: 'Tempura', description: 'Tempura is a Japanese dish usually consisting of seafood or vegetables that have been battered and deep fried.', image: '../images/tempura.avif' },
-    { id: 4, title: 'Udon', description: 'Udon is a type of thick, wheat-flour noodle used frequently in Japanese cuisine. It is often served hot as a noodle soup in its simplest form, as kake udon, in a mildly flavoured broth called kakejiru.', image: '../images/udon.avif' },
-    { id: 5, title: 'Sashimi', description: 'Sashimi is a Japanese delicacy consisting of fresh raw fish or meat sliced into thin pieces and often eaten with soy sauce.', image: '../images/sashimi.avif' },
-    { id: 6, title: 'Yakitori', description: 'Yakitori is a Japanese type of skewered chicken. Its preparation involves skewering the meat with kushi, a type of skewer typically made of steel, bamboo, or similar materials.', image: '../images/yakitori.avif' },
-    { id: 7, title: 'Natto', description: 'Nattō is a traditional Japanese food made from soybeans that have been fermented with Bacillus subtilis var. natto. It is often served as a breakfast food.', image: '../images/natto.avif' },
-    { id: 8, title: 'Oden', description: 'Oden is a Japanese one-pot winter dish consisting of several ingredients such as boiled eggs, daikon, konjac, and processed fish cakes stewed in a light, soy-flavored dashi broth.', image: '../images/oden.avif' },
-    { id: 9, title: 'Tofu', description: 'Tofu, also known as bean curd, is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness.', image: '../images/tofu.avif' },
-    { id: 10, title: 'Donburi', description: 'Donburi is a Japanese rice bowl dish consisting of fish, meat, vegetables or other ingredients simmered together and served over rice.', image: '../images/donburi.avif' },
+    { id: 1, title: 'Sushi', description: 'Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanying a variety of ingredients such as seafood, vegetables, and occasionally tropical fruits.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 2, title: 'Ramen', description: 'Ramen is a Japanese noodle soup. It consists of Chinese-style wheat noodles served in a meat- or fish-based broth, often flavored with soy sauce or miso, and uses toppings such as sliced pork', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 3, title: 'Tempura', description: 'Tempura is a Japanese dish usually consisting of seafood or vegetables that have been battered and deep fried.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 4, title: 'Udon', description: 'Udon is a type of thick, wheat-flour noodle used frequently in Japanese cuisine. It is often served hot as a noodle soup in its simplest form, as kake udon, in a mildly flavoured broth called kakejiru.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 5, title: 'Sashimi', description: 'Sashimi is a Japanese delicacy consisting of fresh raw fish or meat sliced into thin pieces and often eaten with soy sauce.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 6, title: 'Yakitori', description: 'Yakitori is a Japanese type of skewered chicken. Its preparation involves skewering the meat with kushi, a type of skewer typically made of steel, bamboo, or similar materials.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 7, title: 'Natto', description: 'Nattō is a traditional Japanese food made from soybeans that have been fermented with Bacillus subtilis var. natto. It is often served as a breakfast food.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 8, title: 'Oden', description: 'Oden is a Japanese one-pot winter dish consisting of several ingredients such as boiled eggs, daikon, konjac, and processed fish cakes stewed in a light, soy-flavored dashi broth.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 9, title: 'Tofu', description: 'Tofu, also known as bean curd, is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness.', image: '../images/JapaneseDishes/sushi.avif' },
+    { id: 10, title: 'Donburi', description: 'Donburi is a Japanese rice bowl dish consisting of fish, meat, vegetables or other ingredients simmered together and served over rice.', image: '../images/JapaneseDishes/sushi.avif' },
 ];
     
     const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -37,7 +37,7 @@ const dishes = [
             <div className='ml-8 mr-8 flex w-full h-full gap-10'>
                 <div className='w-2/3 h-auto pr-1'>
                     <div className='h-96 w-4/5 bg-black'>
-                        <img src="../images/japaneseintroimage.jpg" alt="title" className='h-full w-full object-cover rounded-sm' />
+                        <img src="../images/JapaneseDishes/japaneseintroimage.jpg" alt="title" className='h-full w-full object-cover rounded-sm' />
                     </div>
                     <div>
                         <h1 className='mt-5 mb-5 text-2xl '>Discover the Diverse Delicacies of Japanese Cuisine <br /> and Understand Their Widespread Popularity</h1>

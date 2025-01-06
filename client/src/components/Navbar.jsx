@@ -25,6 +25,14 @@ const Navbar = () => {
     navigate('/cuisines/italian');
   }
 
+  const handleIndianCuisineClick = () => {
+    navigate('/cuisines/indian');
+  }
+
+  const handleChineseCuisionClick = () => {
+    navigate('/cuisines/chinese');
+  }
+
 
   return (
     <div className='navbar-background z-50'>
@@ -53,12 +61,12 @@ const Navbar = () => {
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  handleIndianCuisineClick();
                 }}><Ham className='mr-2' />Indian Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  handleChineseCuisionClick();
                 }}><Amphora className='mr-2' />Chinese Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {

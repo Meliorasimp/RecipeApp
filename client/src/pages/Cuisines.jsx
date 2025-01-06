@@ -13,15 +13,15 @@ const Cuisines = () => {
             <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300' onClick={() => navigate('/cuisines/spanish')}>Spanish Cuisine</h1>
           </div>
           <div>
-            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Japanese Cuisine</h1>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300' onClick={() => navigate('/cuisines/japanese')}>Japanese Cuisine</h1>
           </div>
           <div>
-            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Italian Cuisine</h1>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300' onClick={() => navigate('/cuisines/italian')}>Italian Cuisine</h1>
           </div>
         </div>
         <div className='flex justify-evenly items-center flex-row gap-10 w-full'>
           <div>
-            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Indian Cuisine</h1>
+            <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300' onClick={() => navigate('/cuisines/indian')}>Indian Cuisine</h1>
           </div>
           <div>
             <h1 className='text-xl bprder border-white border py-2 px-10 rounded-xl hover:cursor-pointer hover:bg-white hover:text-black transition-all duration-300'>Chinese Cuisine</h1>

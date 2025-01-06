@@ -8,16 +8,16 @@ const Spanish = () => {
     const today = date.toLocaleDateString('en-PH', options);
 
 const dishes = [ 
-    { id: 1, title: 'Paella', image: '../images/paella.jpg', description: 'A flavorful rice dish cooked with a variety of ingredients, such as seafood, chicken, and vegetables. Paella is a symbol of Spanish cuisine and is enjoyed by locals and visitors alike.'}, 
-    { id: 2, title: 'Tapas', image: '../images/tapas.jpg', description: 'Small plates of food that are perfect for sharing. Tapas can include a wide range of dishes, from olives and cheese to more elaborate creations like croquettes and patatas bravas.'}, 
-    { id: 3, title: 'Gazpacho', image: '../images/gazpacho.jpg', description: 'A refreshing cold soup made with tomatoes, peppers, cucumbers, and garlic. Gazpacho is a popular dish in the summer months and is a great way to beat the heat.'}, 
-    { id: 4, title: 'Patatas Bravas', image: '../images/patatasbravas.jpg', description: 'Fried potatoes served with a spicy tomato sauce and sometimes aioli, a classic tapa dish.' }, 
-    { id : 5, title: 'Churros con Chocolate', image: '../images/churros.jpg', description: 'Deep-fried dough pastry served with a rich chocolate dipping sauce, a favorite dessert or snack in Spain.'}, 
-    { id: 6, title: 'Jamón Ibérico', image: '../images/jamon.jpg', description: 'Cured ham made from Iberian pigs, prized for its rich flavor and melt-in-your-mouth texture.'},
-    { id: 7, title: 'Tortilla Española', image: '../images/tortilla.jpeg', description: 'A simple yet delicious omelette made with eggs, potatoes, and onions. A staple dish in Spanish homes and bars.'}, 
-    { id: 8, title: 'Crema Catalana', image: '../images/cremecatalana.jpg', description: 'is a classic Spanish dessert from the Catalonia region, often compared to French crème brûlée but with distinct differences.' }, 
-    { id: 9, title: 'Fabada Asturiana', image: '../images/Fabada.jpg', description: 'A hearty bean stew from Asturias, made with white beans, chorizo, morcilla (blood sausage), and pork.' }, 
-    { id: 10, title: 'Croquetas (Croquettes)', image: '../images/Croquetas.jpg', description: 'Deep-fried breaded rolls filled with a creamy mixture of ingredients such as ham, chicken, or fish. Croquetas are a popular tapa in Spain.'} 
+    { id: 1, title: 'Paella', image: '../images/SpanishDishes/paella.jpg', description: 'A flavorful rice dish cooked with a variety of ingredients, such as seafood, chicken, and vegetables. Paella is a symbol of Spanish cuisine and is enjoyed by locals and visitors alike.'}, 
+    { id: 2, title: 'Tapas', image: '../images/SpanishDishes/paella.jpg', description: 'Small plates of food that are perfect for sharing. Tapas can include a wide range of dishes, from olives and cheese to more elaborate creations like croquettes and patatas bravas.'}, 
+    { id: 3, title: 'Gazpacho', image: '../images/SpanishDishes/paella.jpg', description: 'A refreshing cold soup made with tomatoes, peppers, cucumbers, and garlic. Gazpacho is a popular dish in the summer months and is a great way to beat the heat.'}, 
+    { id: 4, title: 'Patatas Bravas', image: '../images/SpanishDishes/paella.jpg', description: 'Fried potatoes served with a spicy tomato sauce and sometimes aioli, a classic tapa dish.' }, 
+    { id : 5, title: 'Churros con Chocolate', image: '../images/SpanishDishes/paella.jpg', description: 'Deep-fried dough pastry served with a rich chocolate dipping sauce, a favorite dessert or snack in Spain.'}, 
+    { id: 6, title: 'Jamón Ibérico', image: '../images/SpanishDishes/paella.jpg', description: 'Cured ham made from Iberian pigs, prized for its rich flavor and melt-in-your-mouth texture.'},
+    { id: 7, title: 'Tortilla Española', image: '../images/SpanishDishes/paella.jpg', description: 'A simple yet delicious omelette made with eggs, potatoes, and onions. A staple dish in Spanish homes and bars.'}, 
+    { id: 8, title: 'Crema Catalana', image: '../images/SpanishDishes/paella.jpg', description: 'is a classic Spanish dessert from the Catalonia region, often compared to French crème brûlée but with distinct differences.' }, 
+    { id: 9, title: 'Fabada Asturiana', image: '../images/SpanishDishes/paella.jpg', description: 'A hearty bean stew from Asturias, made with white beans, chorizo, morcilla (blood sausage), and pork.' }, 
+    { id: 10, title: 'Croquetas (Croquettes)', image: '../images/SpanishDishes/paella.jpg', description: 'Deep-fried breaded rolls filled with a creamy mixture of ingredients such as ham, chicken, or fish. Croquetas are a popular tapa in Spain.'} 
 ];
     
     const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -33,7 +33,7 @@ const dishes = [
             <div className='ml-8 mr-8 flex w-full h-full gap-10'>
                 <div className='w-2/3 h-auto pr-1'>
                     <div className='h-96 w-4/5 bg-black'>
-                        <img src="../images/Spanish-Seafood-Paella.png" alt="title" className='h-full w-full object-cover rounded-sm' />
+                        <img src="../images/SpanishDishes/Spanish-Seafood-Paella.png" alt="title" className='h-full w-full object-cover rounded-sm' />
                     </div>
                     <div>
                         <h1 className='mt-5 mb-5 text-2xl'>Explore the Different Dishes of the Spanish Cuisine <br />and Why They're So Popular</h1>
