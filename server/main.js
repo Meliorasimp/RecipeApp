@@ -22,35 +22,7 @@ app.use(cors());
 app.use('/user', registerRoute);
 app.use('/userprofile', userprofileRoute);
 app.use('/article', articleRoute);
-
-app.get('/calculate', (req, res) => {
-    const cppFilePath = path.join(__dirname, 'test.cpp');
-    const outputFile = path.join(__dirname, 'program.out');
-
-    // Compile the C++ file
-    exec(`g++ "${cppFilePath}" -o "${outputFile}"`, (compileError, compileStdout, compileStderr) => {
-        if (compileError) {
-            console.error(compileError.message);
-            return res.status(400).send('Error in compiling C++ code');
-        }
-
-        // Run the compiled program
-        exec(`"${outputFile}"`, (runError, stdout, stderr) => {
-            if (runError) {
-                console.error(runError.message);
-                return res.status(400).send('Error in running C++ program');
-            }
-
-            if (stderr) {
-                console.error(stderr);
-                return res.status(400).send(stderr);
-            }
-
-            console.log('Output:', stdout);
-            res.send(stdout);
-        });
-    });
-});
+//test Route for the CPP file
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))

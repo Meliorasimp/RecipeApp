@@ -1,117 +1,91 @@
 import React from 'react'
 import '../styles/navbarstyles.css'
 import { useNavigate } from 'react-router-dom'
+
 import { Fish, LeafyGreen, Pizza, Ham, Amphora, Salad, Beef, IceCreamBowl, Milk, Wheat, EggFried, Star, Apple, Cherry } from 'lucide-react'
+import NavigationHook from '../hooks/Navigationhook'
+
 const Navbar = () => {
-  const navigate = useNavigate();
-
-  const handleHomePageClick = () => {
-    navigate('/');
-  }
-
-  const handleCuisineClick = () => {
-    navigate('/cuisines');
-  }
-
-  const handleSpanishCuisineClick = () => {
-    navigate('/cuisines/spanish');
-  }
-
-  const handleJapaneseCuisineClick = () => {
-    navigate('/cuisines/japanese');
-  }
-
-  const handleItalianCuisineClick = () => {
-    navigate('/cuisines/italian');
-  }
-
-  const handleIndianCuisineClick = () => {
-    navigate('/cuisines/indian');
-  }
-
-  const handleChineseCuisionClick = () => {
-    navigate('/cuisines/chinese');
-  }
-
+  const navigateTo = NavigationHook()
 
   return (
     <div className='navbar-background z-50'>
       <div className='flex justify-between items-center m-2'>
-        <h1 className='sm:text-sm lg:font-bold lg:text-xl ml-10 cursor-pointer' onClick={handleHomePageClick}>Épicurienne</h1>
+        <h1 className='sm:text-sm lg:font-bold lg:text-xl ml-10 cursor-pointer' onClick={() => navigateTo('/')}>Épicurienne</h1>
         <div className='flex gap-10 mr-2 justify-center items-center'>
             <h1 className='hover:text-orange-300'> &#x25BC; Top Rated Recipes</h1>
-            <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown' onClick={handleCuisineClick}>&#x25BC; Cuisines
+            <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown' onClick={() => navigateTo('/cuisines')}>&#x25BC; Cuisines
               <div className='cuisine-dropdown-content'>
                 <div className='flex flex-col'>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleSpanishCuisineClick();
+                  navigateTo('/cuisines/spanish'); 
                 }}><Fish className='mr-2'/>Spanish Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleJapaneseCuisineClick();
+                  navigateTo('/cuisines/japanese');
                 }}><LeafyGreen className='mr-2'/>Japanese Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleItalianCuisineClick();
+                  navigateTo('/cuisines/italian');  
                 }}><Pizza className='mr-2'/>Italian Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleIndianCuisineClick();
+                  navigateTo('/cuisines/indian');
                 }}><Ham className='mr-2' />Indian Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleChineseCuisionClick();
+                  navigateTo('/cuisines/chinese');
                 }}><Amphora className='mr-2' />Chinese Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/french');
                 }}><Salad className='mr-2' />French Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/mexican');
                 }}><Beef className='mr-2' />Mexican Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/greek');
                 }}><IceCreamBowl className='mr-2' />Greek Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/thai');
                 }}><Milk className='mr-2' />Thai Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/korean'); 
                 }}><Wheat className='mr-2' />Korean Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/american');
                 }}><EggFried className='mr-2' />American Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/philippines');  
                 }}><Star className='mr-2' />Philippines Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/peruvian');
                 }}><Apple className='mr-2' />Peruvian Cuisine</h1>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
                 onClick={(event) => {
                   event.stopPropagation();
-                  handleHomePageClick();
+                  navigateTo('/cuisines/ethiopian');
                 }}><Cherry className='mr-2' />Ethiopian Cuisine</h1>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 import React from 'react'
-import '../../styles/homepagestyles.css'
 import { scrollToId } from '../../service/MainService.js'
+import '../../styles/homepagestyles.css'
 
-const Chinese = () => {
+const French = () => {
     const date = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const today = date.toLocaleDateString('en-PH', options);
@@ -40,7 +40,7 @@ const dishes = [
                         <img src="../images/ChineseDishes/chineseintroimage.jpg" alt="title" className='h-full w-full object-cover rounded-sm' />
                     </div>
                     <div>
-                        <h1 className='mt-5 mb-5 text-2xl font-bold'>Discover the Diverse Flavors of Chinese Cuisine and  <br />Unveil the Secrets Behind Its Worldwide Popularity.</h1>
+                        <h1 className='mt-5 mb-5 text-2xl font-bold'>Uncover the Rich Varieties of Indian Cuisine and <br /> Explore the Secrets Behind Its Global Acclaim.</h1>
                     </div>
                     <div className='mb-10 text-sm'>
                         <p>By: Meliorasimpx | {today}</p>
@@ -188,4 +188,5 @@ const dishes = [
 }
 
 
-export default Chinese
+
+export default French

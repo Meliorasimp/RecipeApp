@@ -1,6 +1,6 @@
 import React from 'react'
 import { scrollToId } from '../../service/MainService.js'
-
+import '../../styles/homepagestyles.css'
 const Indian = () => {
     const date = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -27,8 +27,8 @@ const dishes = [
         window.location.href = '/cuisines/japanese';
     }
 
-    const handleIndianCuisineClick = () => {
-        window.location.href = '/cuisines/indian';
+    const handleChineseCuisineClick = () => {
+        window.location.href = '/cuisines/chinese';
     }
 
     return (
@@ -153,7 +153,7 @@ const dishes = [
                         <br />
                         <div className='relative'>
                             <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute left-10' onClick={handleJapaneseCuisineClick}>&larr; Italian Cuisine</button>
-                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute right-10 hover:text-orange-300' onClick={handleIndianCuisineClick}>Chinese Cuisine &rarr;</button>
+                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute right-10 hover:text-orange-300' onClick={handleChineseCuisineClick }>Chinese Cuisine &rarr;</button>
                         </div>
                                 
                     </div>

@@ -12,6 +12,7 @@ import Japanese from './pages/cuisinepages/Japanese';
 import Italian from './pages/cuisinepages/Italian';
 import Indian from './pages/cuisinepages/Indian';
 import Chinese from './pages/cuisinepages/Chinese';
+import French from './pages/cuisinepages/French';
 
 const App = () => {
   const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
@@ -44,6 +45,7 @@ const App = () => {
           <Route path='/cuisines/italian' element={<Italian />}></Route>
           <Route path='/cuisines/indian' element={<Indian />}></Route>
           <Route path='/cuisines/chinese' element={<Chinese />}></Route>
+          <Route path='/cuisines/french' element={<French />}></Route>
         </Routes>
         <ToastContainer />
       </BrowserRouter>
