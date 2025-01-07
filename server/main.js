@@ -6,6 +6,7 @@ import cors from 'cors';
 import registerRoute from './routes/userroute.js';
 import userprofileRoute from './routes/userprofileroute.js';
 import articleRoute from './routes/articleroute.js';
+import { exec } from 'child_process';
 import path from 'path';
 const app = express();
 
@@ -21,6 +22,35 @@ app.use(cors());
 app.use('/user', registerRoute);
 app.use('/userprofile', userprofileRoute);
 app.use('/article', articleRoute);
+
+app.get('/calculate', (req, res) => {
+    const cppFilePath = path.join(__dirname, 'test.cpp');
+    const outputFile = path.join(__dirname, 'program.out');
+
+    // Compile the C++ file
+    exec(`g++ "${cppFilePath}" -o "${outputFile}"`, (compileError, compileStdout, compileStderr) => {
+        if (compileError) {
+            console.error(compileError.message);
+            return res.status(400).send('Error in compiling C++ code');
+        }
+
+        // Run the compiled program
+        exec(`"${outputFile}"`, (runError, stdout, stderr) => {
+            if (runError) {
+                console.error(runError.message);
+                return res.status(400).send('Error in running C++ program');
+            }
+
+            if (stderr) {
+                console.error(stderr);
+                return res.status(400).send(stderr);
+            }
+
+            console.log('Output:', stdout);
+            res.send(stdout);
+        });
+    });
+});
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))
