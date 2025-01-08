@@ -6,7 +6,6 @@ import cors from 'cors';
 import registerRoute from './routes/userroute.js';
 import userprofileRoute from './routes/userprofileroute.js';
 import articleRoute from './routes/articleroute.js';
-import { exec } from 'child_process';
 import path from 'path';
 const app = express();
 
@@ -22,7 +21,6 @@ app.use(cors());
 app.use('/user', registerRoute);
 app.use('/userprofile', userprofileRoute);
 app.use('/article', articleRoute);
-//test Route for the CPP file
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))

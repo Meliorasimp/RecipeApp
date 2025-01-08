@@ -1,5 +1,6 @@
 import { createArticle, getArticlesByUser, deleteOneArticle } from "../controller/articlecreationcontroller.js";
 import { upload } from "../middleware/imageuploader.js";
+import multer from "multer";
 import express from "express";
 const router = express.Router();
 

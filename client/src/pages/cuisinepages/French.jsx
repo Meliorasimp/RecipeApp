@@ -8,28 +8,28 @@ const French = () => {
     const today = date.toLocaleDateString('en-PH', options);
 
 const dishes = [ 
-    { id: 1, title: 'Kung Pao Chicken', description: 'A spicy, stir-fried Chinese dish made with chicken, peanuts, vegetables, and chili peppers.', image: '../images/ChineseDishes/kungpaochicken.jpg' },
-    { id: 2, title: 'Mapo Tofu', description: 'A popular Chinese dish from Sichuan province made with tofu, minced meat, and a spicy sauce.', image: '../images/ChineseDishes/mapotofu.jpg' },
-    { id: 3, title: 'Peking Roasted Duck', description: 'A famous Chinese dish that originated in Beijing, featuring crispy duck skin and tender meat.', image: '../images/ChineseDishes/pekingroastedduck.jpg' },
-    { id: 4, title: 'Dumplings', description: 'A traditional Chinese dish made with dough and filled with meat, vegetables, or seafood.', image: '../images/ChineseDishes/dumplings.jpg' },
-    { id: 5, title: 'Hot Pot', description: 'A popular Chinese cooking method where ingredients are cooked in a simmering pot of broth.', image: '../images/ChineseDishes/hotpot.jpg' },
-    { id: 6, title: 'Sweet and Sour Pork', description: 'A classic Chinese dish made with deep-fried pork and a tangy sweet and sour sauce.', image: '../images/ChineseDishes/sweetandsourpork.jpg' },
-    { id: 7, title: 'Dim Sum', description: 'A style of Chinese cuisine that features small, bite-sized portions of food served in steamer baskets or on small plates.', image: '../images/ChineseDishes/dimsum.jpg' },
-    { id: 8, title: 'Char Siu', description: 'A popular Chinese dish made with barbecued pork marinated in a sweet and savory sauce.', image: '../images/ChineseDishes/charsiu.jpg' },
-    { id: 9, title: 'Chow Mein', description: 'A Chinese stir-fried noodle dish made with vegetables, meat, and a savory sauce.', image: '../images/ChineseDishes/chowmein.jpg' },
-    { id: 10, title: 'Fried Rice', description: 'A classic Chinese dish made with steamed rice stir-fried with vegetables, eggs, and meat.', image: '../images/ChineseDishes/friedrice.jpg' },
+    { id: 1, title: 'Boeuf Bourguignon', description: 'A classic French dish made with beef braised in red wine, typically served with mushrooms and onions.', image: '../images/FrenchDishes/boeufbourguignon.jpg' },
+    { id: 2, title: 'Bouillabaisse', description: 'A traditional fish stew from the Provence region, made with various fish, shellfish, and aromatic herbs.', image: '../images/FrenchDishes/bouillabaisse.jpg' },
+    { id: 3, title: 'Cassoulet', description: 'A hearty casserole made with white beans, sausages, and various meats, originating from the southwest of France.', image: '../images/FrenchDishes/cassoulet.jpg' },
+    { id: 4, title: 'Chicken Confit', description: 'Chicken cooked slowly in its own fat, resulting in tender and flavorful meat.', image: '../images/FrenchDishes/chickenconfit.jpg' },
+    { id: 5, title: 'Croque Monsieur', description: 'A popular French sandwich made with ham and Gruyère cheese, typically served with béchamel sauce.', image: '../images/FrenchDishes/croquemonsieur.jpg' },
+    { id: 6, title: 'French Onion Soup', description: 'A comforting soup made with caramelized onions, beef broth, and topped with melted cheese and toasted bread.', image: '../images/FrenchDishes/frenchonionsoup.jpg' },
+    { id: 7, title: 'Lamb Shack Navarin' , description: 'is a French ragoût (stew) of lamb or mutton. If made with lamb and vegetables available fresh in the spring, it is called navarin printanier (spring stew).', image: '../images/FrenchDishes/lambshacknavarin.jpg' },
+    { id: 8, title: 'Quiche Lorraine', description: 'is a savoury French tart with a filling of cream, eggs, and bacon or ham, in an open pastry case. It was little known outside the French region of Lorraine until the mid-20th century.', image: '../images/FrenchDishes/quichelorraine.jpg'},
+    { id: 9, title: 'Salmon En Papillote', description: 'Don’t let the fancy French name fool you.  This is hands down the easiest way to cook fish at home you’ll ever try.' , image:'../images/FrenchDishes/salmonenpapillote.jpg' },
+    { id: 10, title: 'Steak Frites', description: 'A classic French dish consisting of a grilled steak served with French fries.', image: '../images/FrenchDishes/steakfrites.jpg' },
 ];
     
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const itemsToShow = 2;
     const slicedArray = dishes.slice(currentIndex, currentIndex + itemsToShow);
 
-    const handleIndianCuisineClick = () => {
-        window.location.href = '/cuisines/indian';
+    const handleChineseCuisineClick = () => {
+        window.location.href = '/cuisines/chinese'
     }
 
-    const handleFrenchCuisineClick = () => {
-        window.location.href = '/cuisines/french';
+    const handleMexicanCuisineClick = () => {
+        window.location.href = '/cuisines/mexican'
     }
 
     return (
@@ -37,98 +37,77 @@ const dishes = [
             <div className='ml-8 mr-8 flex w-full h-full gap-10'>
                 <div className='w-2/3 h-auto pr-1'>
                     <div className='h-96 w-4/5 bg-black'>
-                        <img src="../images/ChineseDishes/chineseintroimage.jpg" alt="title" className='h-full w-full object-cover rounded-sm' />
+                        <img src="../images/FrenchDishes/frenchintroimage.jpeg" alt="title" className='h-full w-full object-cover rounded-sm' />
                     </div>
                     <div>
-                        <h1 className='mt-5 mb-5 text-2xl font-bold'>Uncover the Rich Varieties of Indian Cuisine and <br /> Explore the Secrets Behind Its Global Acclaim.</h1>
+                        <h1 className='mt-5 mb-5 text-2xl font-bold'>Discover the Diverse Flavors of the French Cuisine and Delve <br />into the Secrets Behind Its Worldwide Recognition.</h1>
                     </div>
                     <div className='mb-10 text-sm'>
                         <p>By: Meliorasimpx | {today}</p>
                     </div>
                     <div className='mb-10'>
-                        <p className='leading-loose text-lg' id='introduction'>Chinese cuisine is a rich and diverse tapestry that has evolved over thousands of years, 
-                            reflecting the country’s vast geography, varied climates, and deep cultural traditions. It is known for its intricate techniques, harmonious 
-                            flavors, and emphasis on fresh ingredients, making it one of the most beloved and influential cuisines in the world.
+                        <p className='leading-loose text-lg' id='introduction'>French cuisine has a rich history that dates back to the Middle Ages. 
+                            During this period, French food was heavily influenced by Italian cuisine, especially during the Renaissance when Catherine de' 
+                            Medici married Henry II of France. She brought Italian chefs and introduced new ingredients like artichokes, asparagus, and truffles to France.
                         </p><br />
-
+                        <p className='leading-loose text-lg'>
+                        The 17th century saw the development of French haute cuisine, with chefs like La Varenne and François Pierre La Varenne 
+                        refining cooking techniques and recipes. The 18th and 19th centuries brought further innovation with the introduction of sauces, 
+                        soups, and pastries that became staples of French cuisine.
+                        </p>
                     </div>
                     <div className='mb-10'>
                         <h1 className='text-xl font-bold mb-2' id='essence'>Regional Diversity</h1>
-                        <p className='leading-loose text-lg'>Chinese cuisine is not monolithic; it encompasses a wide array of regional styles, 
-                            each with its unique flavors and specialties. The most well-known are the Eight Culinary Traditions of China, which include:
+                        <p className='leading-loose text-lg'>France boasts a variety of regional cuisines, each with its unique ingredients and specialties:
                         </p><br />
                         <ul>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Cantonese (Yue) Cuisine: </span>Known for its subtle flavors and emphasis on freshness, Cantonese cuisine includes delicacies like dim sum, roast duck, and steamed fish. The cuisine often features light sauces and quick stir-frying techniques.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Sichuan (Chuan) Cuisine: </span>Famous for its bold and spicy flavors, Sichuan cuisine uses ingredients like garlic, chili peppers, and Sichuan peppercorns to create dishes such as mapo tofu, kung pao chicken, and hotpot.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Shandong (Lu) Cuisine: </span>Characterized by its hearty flavors and use of seafood, Shandong cuisine includes dishes like braised abalone, sweet and sour carp, and stir-fried clams. The cuisine often employs deep-frying and braising methods.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Jiangsu (Su) Cuisine: </span>Known for its refined and elegant dishes, Jiangsu cuisine includes sweet and savory flavors, with dishes like braised pork belly, lion's head meatballs, and soup dumplings.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Hunan (Xiang) Cuisine: </span>Similar to Sichuan cuisine, Hunan cuisine is known for its spiciness and use of chili peppers. Signature dishes include spicy chicken, steamed fish head with chili, and stir-fried pork with green beans.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Fujian (Min) Cuisine: </span>Featuring delicate flavors and a focus on seafood, Fujian cuisine includes dishes like Buddha Jumps Over the Wall, oyster omelet, and red yeast rice pork.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Anhui (Hui) Cuisine: </span>Known for its use of wild herbs and simple cooking techniques, Anhui cuisine includes dishes like bamboo shoots with ham, braised pigeon, and eggplant casserole.</li>
-                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Zhejiang (Zhe) Cuisine: </span>Emphasizing freshness and seasonal ingredients, Zhejiang cuisine includes dishes like West Lake fish in vinegar sauce, dongpo pork, and beggar's chicken.</li>
+                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Alsace: </span>Known for its Germanic influence, featuring dishes like choucroute garnie (sauerkraut with sausages) and flammekueche (a thin-crust tart topped with cream, onions, and bacon).</li>
+                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Brittany: </span>Famous for its seafood, particularly oysters and mussels, as well as its crepes and galettes.</li>
+                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Burgundy: </span>Renowned for its wines and dishes like boeuf bourguignon (beef stewed in red wine) and escargots (snails in garlic butter).</li>
+                            <li className='leading-loose text-lg font-light'><span className='font-bold'>Provence: </span>Celebrated for its Mediterranean flavors, including bouillabaisse (a fish stew) and ratatouille (a vegetable medley).</li>
                         </ul>
                     </div>
                     <div className='mb-10'>
-                        <h1 className='text-xl font-bold mb-2' id='ingredients'>Essential Ingredients in China</h1>
-                        <p className='mb-4 text-lg'>Chinese cuisine relies on a handful of essential ingredients that define its distinctive flavors and vibrant dishes.
+                        <h1 className='text-xl font-bold mb-2' id='ingredients'>Essential Ingredients in France</h1>
+                        <p className='mb-4 text-lg'>French cuisine relies on a handful of essential ingredients that define its distinctive flavors and vibrant dishes.
                              Here are some key components:</p>
                         <ol className='flex flex-col gap-3'>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'> (Regular or light) soy sauce</span> - Soy sauce is the most iconic and well-known Chinese pantry essential that you likely already have stocked.
-                                So many Chinese dishes use this ingredient, and nowadays, many western chefs are adding soy sauce to their pantry arsenal to add extra umami to their dishes.</p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Olive oil</span> - A culinary staple that starts many French dishes, olive oil has myriad uses</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Garlic (Dà Suàn)</span> - When it comes to garlic, you'll be 
-                                hard-pressed to find any authentic Chinese dish that does not have it. As one of the pillars of Chinese cooking - and a 
-                                mainstay in our kitchens both now and while growing up - fresh garlic is used in a wide array of dishes. including meat marinades, 
-                                soups, vegetable stir-fries and dumpling fillings. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Dijon mustard</span> - This slightly spicy mustard is used to thicken a marinade or emulsify a vinaigrette.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Ginger (Shēng Jiāng)</span> - Another essential Chinese ingredient is 
-                                ginger. Ginger is often used as an aromatic in steamed fish dishes. It also features prominently in popular dishes such as Ginger 
-                                Chicken and Hainanese Chicken Rice. This fragrant herb can always be found in our kitchens and is widely favoured as it’s believed
-                                 by the Chinese to have medicinal properties. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Fleur de sel</span> - Traditionally from Brittany, fleur de sel is large salt crystals that form as seawater evaporates. Fleur de sel is sprinkled atop a finished dish.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Scallions (Xiāng Cōng)</span> - callions are another of the most common 
-                                Chinese ingredients. Its green leafy parts are often used as a garnish while its white parts are used to add a sweet onion flavour to dishes. 
-                                Popular Chinese dishes featuring scallions include Stir-Fried Beef with Ginger and Scallions.  </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'> Crème fraîche</span> - This rich garnish is heavy cream mixed with buttermilk. It is used in soups and sauces, and as a topping for something sweet, like a bowl of fruit.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Sichuan Peppercorns (Huā Jiāo)</span> - Sichuan peppercorns are a 
-                                popular Asian spice, harvested dried berries from the Sichuan pepper tree. With a fresh, citrusy flavour, they also deliver a numbing, 
-                                tingling effect on the tongue that is best described as electrifying. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Truffles</span> - This fungus, related to mushrooms, grow in the shade of oak trees in the French countryside and are used to flavor cooking oils and dishes.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Dried Red Chillies (Gān Hóng Là Jiāo)</span> - Sichuan cuisine doesn't 
-                                shy away from heat. It wouldn't be complete without dried red chillies to complement the Sichuan peppercorns. The liberal use of dried red chillies 
-                                gives every dish it's served with a fiery kick.</p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Herbes de provence.</span> - Fragrant, dried herbs from Provence like rosemary, thyme, oregano, lavender, and tarragon are combined and used to season savory dishes like poultry and roasted vegetables.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Star Anise (Bā Jiǎo)</span> - Star anise is a seed pod from an evergreen 
-                                tree native to China and resembles a wooden flower. It has a unique flavour that is warm and spicy, reminiscent of liquorice, 
-                                and can be used whole or grounded. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Shallots</span> - In the onion and garlic family, shallots have a milder taste and are used in similar ways as onions in cooking.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Ground White Pepper (Bái Hújiāo)</span> - In traditional Chinese cooking, 
-                                white pepper is the pepper of choice. It adds heat to dishes but is subtler and less complex in flavour compared to black pepper. 
-                                We've found that grounded pepper loses its potency quickly. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>French bread</span> - The French have a long history with bread, 
+                                from baguettes to buttery, flaky croissants, and no French-inspired kitchen would be complete without a fresh loaf.</p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Five Spice Powder (Wǔxiāng Fěn)</span> - Five Spice Powder is commonly a mixture 
-                                of cloves, star anise, cinnamon, fennel and Sichuan peppercorns. This authentic Chinese ingredient is a complex blend of sweet, bitter, sour, salty, 
-                                and savoury flavours. It is traditionally thought to promote balance in the body and bring about internal harmony. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'> Wine</span> - France has one of the most productive wine regions in the world. Red and white wine is a beverage that is also used to simmer meats and create rich sauces. </p>
                             </li>
                             <li>
-                                <p className='leading-loose text-lg font-light'><span className='font-bold'>Bamboo Shoots (Zhú Sǔn)</span> - While not a traditional aromatic like 
-                                garlic or ginger, bamboo shoots add a crunch and subtle, earthy flavour to several dishes. They are commonly used in stir-fries, soups, and as 
-                                an ingredient in dumplings and spring roll fillings. </p>
+                                <p className='leading-loose text-lg font-light'><span className='font-bold'>French cheeses</span> - The French produce and eat more cheese per person than in any other country. Known as fromage in French, varieties include camembert, Brie, and Roquefort.</p>
                             </li>
                         </ol>
                     </div>
                     <div>
-                        <h1 className='text-xl font-bold mb-2' id='dishes'>Famous Chinese Dishes</h1>
-                        <p className='text-lg mb-6 leading-loose'>China boasts a rich culinary heritage, and its famous dishes are cherished worldwide. Here are some iconic Chinese dishes:</p>
+                        <h1 className='text-xl font-bold mb-2' id='dishes'>Famous French Dishes</h1>
+                        <p className='text-lg mb-6 leading-loose'>France boasts a rich culinary heritage, and its famous dishes are cherished worldwide. Here are some iconic French dishes:</p>
                         <div className='flex justify-evenly w-full h-96 relative mb-16'>
                             { currentIndex > 0 ? <button className='absolute left-0 bottom-48' onClick={() => setCurrentIndex(currentIndex - 2)}>&larr;</button> : null }
                             { currentIndex === 8 ? null : <button className='absolute right-0 bottom-48' onClick={() => setCurrentIndex(currentIndex + 2)}>&rarr;</button> }
@@ -148,16 +127,15 @@ const dishes = [
                     </div>
                     <div id='conclusion' className='pb-10'>
                         <h1 className='text-xl font-bold mb-2'>Conclusion</h1>
-                        <p className='text-lg leading-loose'>Chinese cuisine is much more than just a set of recipes; 
-                            it is a reflection of the rich cultural heritage and philosophical principles that have shaped Chinese society for thousands of years. 
-                            From the delicate art of dim sum to the fiery flavors of Sichuan cuisine, Chinese food offers a diverse and deeply satisfying culinary experience. 
-                            Whether you are enjoying a steaming bowl of noodles in Beijing or sampling Cantonese dim sum in Hong Kong, the flavors, textures, 
-                            and traditions of Chinese cuisine continue to captivate and inspire people around the world.<br />
+                        <p className='text-lg leading-loose'>Today, French cuisine continues to evolve, blending traditional techniques with modern innovations. 
+                            Chefs like Alain Ducasse and Joël Robuchon have pushed the boundaries of French cooking, creating dishes that are both visually stunning 
+                            and delicious. The farm-to-table movement and a renewed emphasis on sustainability have also influenced contemporary French cuisine, 
+                            with many chefs focusing on locally-sourced ingredients and seasonal dishes..<br />
                         </p>
                         <br />
                         <div className='relative'>
-                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute left-10' onClick={handleIndianCuisineClick}>&larr; Indian Cuisine</button>
-                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute right-10 hover:text-orange-300' onClick={handleFrenchCuisineClick}>French Cuisine &rarr;</button>
+                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute left-10' onClick={handleChineseCuisineClick}>&larr; Chinese Cuisine</button>
+                            <button className='homepage-second-background mt-6 px-4 py-2 rounded-xl absolute right-10 hover:text-orange-300' onClick={handleMexicanCuisineClick}>Mexican Cuisine &rarr;</button>
                         </div>
                                 
                     </div>
@@ -175,7 +153,7 @@ const dishes = [
                             <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('ingredients')}>Ingredients</h1>
                         </div>
                         <div className='w-full h-12 homepage-second-background hover:bg-white hover:text-black transition-all duration-300'>
-                            <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('dishes')}>Famous Chinese Dishes</h1>
+                            <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('dishes')}>Famous French Dishes</h1>
                         </div>
                         <div className='w-full h-12 homepage-second-background hover:bg-white hover:text-black transition-all duration-300'>
                             <h1 className='pl-2 pt-2 text-lg font-bold cursor-pointer w-full h-full' onClick={() => scrollToId('conclusion')}>Conclusion</h1>
