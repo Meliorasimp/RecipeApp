@@ -130,7 +130,7 @@ const dishes = [
                         <p className='text-lg leading-loose'>Today, French cuisine continues to evolve, blending traditional techniques with modern innovations. 
                             Chefs like Alain Ducasse and Joël Robuchon have pushed the boundaries of French cooking, creating dishes that are both visually stunning 
                             and delicious. The farm-to-table movement and a renewed emphasis on sustainability have also influenced contemporary French cuisine, 
-                            with many chefs focusing on locally-sourced ingredients and seasonal dishes..<br />
+                            with many chefs focusing on locally-sourced ingredients and seasonal dishes.    <br />
                         </p>
                         <br />
                         <div className='relative'>
