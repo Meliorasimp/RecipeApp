@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className='navbar-background z-50'>
       <div className='flex justify-between items-center m-2'>
-        <h1 className='sm:text-sm lg:font-bold lg:text-xl ml-10 cursor-pointer' onClick={() => navigateTo('/')}>Épicurienne</h1>
+        <h1 className='sm:text-sm lg:font-bold lg:text-lg ml-1 cursor-pointer' onClick={() => navigateTo('/')}>Épicurienne</h1>
         <div className='flex gap-10 mr-2 justify-center items-center'>
             <h1 className='hover:text-orange-300'> &#x25BC; Top Rated Recipes</h1>
             <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown' onClick={() => navigateTo('/cuisines')}>&#x25BC; Cuisines

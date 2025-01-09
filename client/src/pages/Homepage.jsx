@@ -3,7 +3,7 @@ import '../styles/homepagestyles.css'
 import Register from '../components/Register'
 import Login from '../components/Login'
 
-const Homepage = () => {
+const Homepage = ({hasUserLoggedIn}) => {
   const [showRegister, setShowRegister] = React.useState(false)
   const [showLogin, setShowLogin] = React.useState(false)
   
@@ -28,6 +28,7 @@ const Homepage = () => {
       />}
       {showLogin && <Login 
       onLogin={handleLogin}
+      hasUserLoggedIn={hasUserLoggedIn}
       />}
       <button className='homepage-button-color mt-5 w-96 rounded-xl p-3 absolute top-80 text-xl' onClick={handleRegister}>Start Cookin'!</button>
     </div>

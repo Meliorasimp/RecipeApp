@@ -9,7 +9,7 @@ import Favorites from '../components/Favorites';
 import MyRecipes from '../components/MyRecipes';
 import UserRecipes from '../components/UserRecipes';
 
-const Userprofile = () => {
+const Userprofile = ({handleHomePage}) => {
   const [image, setImage] = React.useState('');
   const [imagePreview, setImagePreview] = React.useState('');
   const [isImageUploaded, setIsImageUploaded] = React.useState(false);
@@ -93,7 +93,7 @@ const Userprofile = () => {
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleFavoritesClick}><Star size={28} color='black'/>Favorites</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleMyRecipesClick}><Send size={28} color='black'/>My Recipe</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleUserRecipesClick}><View size={28} color='black'/>View</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer'><LogOut size={24} color='black' className='mr-4'/>Logout q</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer'><LogOut size={24} color='black' className='mr-4' onClick={handleHomePage}/>Logout q</h1>
         </div>
       </div>
       {isCreateClicked && <Create />}

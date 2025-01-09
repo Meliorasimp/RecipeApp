@@ -4,11 +4,11 @@ import axios from 'axios'
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
-const Login = ({onLogin}) => {
+const Login = ({onLogin, hasUserLoggedIn}) => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
 
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
   const handleLoginSubmit = async(e) => {
     e.preventDefault();
@@ -30,9 +30,9 @@ const Login = ({onLogin}) => {
           progress: undefined,
         })
         const usernameurl = response.data.user.username;
-        localStorage.setItem('user', response.data.user.id)
-        localStorage.setItem('username', usernameurl)
-        
+        localStorage.setItem('username', usernameurl); 
+        hasUserLoggedIn();
+        console.log('Calling onLogin with username:', response.data.user.username);
         Navigate(`/dashboard/${usernameurl}`)
 
       }
@@ -78,7 +78,7 @@ const Login = ({onLogin}) => {
                         onChange={(e) => setPassword(e.target.value)}
                 />
                 <div className='flex flex-row mt-5 justify-around'>
-                  <button className='px-6 py-1 rounded-xl bg-green-300 hover:bg-green-400'>Login</button>
+                  <button className='px-6 py-1 rounded-xl bg-green-300 hover:bg-green-400' type='submit'>Login</button>
                   <button className='px-6 py-1 rounded-xl bg-red-300 hover:bg-red-400 hover:border-black' onClick={onLogin}>Cancel</button>
                 </div>
               </form>

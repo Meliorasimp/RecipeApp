@@ -18,24 +18,26 @@ import Greek from './pages/cuisinepages/Greek';
 import Thai from './pages/cuisinepages/Thai';
 import Korean from './pages/cuisinepages/Korean';
 import American from './pages/cuisinepages/American';
+import Philippines from './pages/cuisinepages/Philippines';
+import Peruvian from './pages/cuisinepages/Peruvian';
+import Ethiopian from './pages/cuisinepages/Ethiopian';
 
 const App = () => {
-  const [usersdata, setUsersdata] = useState(localStorage.getItem('username') || '');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const usernameurl = localStorage.getItem('username');
 
-  const usernameurl = usersdata.replace(/\s+/g, '-');
 
-  const handleLogin = () => {
-    localStorage.setItem('username', usersdata);
-    setUsersdata(usersdata);
+  const handleLogin = () => { 
+    console.log('User logged in');
   };
 
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        { isLoggedIn ? null : <Navbar /> }
         <Routes>
-          <Route path='/' element={<Homepage onLogin={handleLogin} />} />
-          {usersdata ? (
+          <Route path='/' element={<Homepage hasUserLoggedIn={handleLogin} />} />
+          {usernameurl ? (
             <>
               <Route path={`/dashboard/${usernameurl}`} element={<Userprofile />} />
               <Route path={`/dashboard/${usernameurl}/appetizeredit`} element={<AppetizerEditor />} />
@@ -56,6 +58,9 @@ const App = () => {
           <Route path='/cuisines/thai' element={<Thai />}></Route>
           <Route path='/cuisines/korean' element={<Korean />}></Route>
           <Route path='/cuisines/american' element={<American />}></Route>
+          <Route path='/cuisines/philippines' element={<Philippines />}></Route>
+          <Route path='/cuisines/peruvian' element={<Peruvian />}></Route>
+          <Route path='/cuisines/ethiopian' element={<Ethiopian />}></Route>
         </Routes>
         <ToastContainer />
       </BrowserRouter>
