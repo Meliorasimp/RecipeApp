@@ -1,20 +1,14 @@
-.dashboard-background {
-    background-color: white;
+.dashboard-main-background {
+    background-color: #0A0A0A;
 }
 
-.dashboard-userprofile-background {
-    background-color: #E2C8CF;
+.dashboard-second-background {
+    background-color: #1f1f1f;
 }
-
-.dashboard-body-background {
-    background-color: #F3E3E7;
-}
-
-.dashboard-card-background { 
-    background-color: #C8A5B5; 
-}
-
 .scale-animation:hover {
     transition: transform 0.5s;
     transform: scale(1.05);
+}
+.dashboard-main-test-background {
+    background-color: #151515;
 }

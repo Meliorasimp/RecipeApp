@@ -30,10 +30,10 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
           progress: undefined,
         })
         const usernameurl = response.data.user.username;
-        localStorage.setItem('username', usernameurl); 
+        localStorage.setItem('username', usernameurl);
         hasUserLoggedIn();
-        console.log('Calling onLogin with username:', response.data.user.username);
-        Navigate(`/dashboard/${usernameurl}`)
+        console.log('Calling onLogin with username:', response.data.user);
+        Navigate(`/dashboard/${usernameurl}`);
 
       }
     }

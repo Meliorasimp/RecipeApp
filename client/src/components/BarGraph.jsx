@@ -9,10 +9,10 @@ const BarGraph = ({ data, labels }) => {
     labels: labels, 
     datasets: [
       {
-        label: 'Number of Recipes',
+        label: 'Total User Score',
         data: data,
-        backgroundColor: 'rgba(0, 200, 0, 1)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        borderColor: 'rgba(255, 255, 255, 1)',
         borderWidth: 1,
       },
     ],
@@ -30,6 +30,18 @@ const BarGraph = ({ data, labels }) => {
         text: 'Recipes Created Each Month',
       },
     },
+    scales: {
+      x: {
+        grid: {
+          color: 'rgba(255,255,255,0.5)',
+        }
+      },
+      y: {
+        grid: {
+          color: 'rgba(255,255,255,0.5)',
+        }
+      }
+    }
   };
 
   return <Bar data={chartData} options={options} />;

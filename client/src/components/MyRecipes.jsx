@@ -4,6 +4,7 @@ import { TruncateText30 } from '../service/MainService.js';
 import { useArticleStore } from '../store/registerstore.js';
 import DeleteModal from './DeleteModal.jsx';
 import axios from 'axios';
+import '../styles/dashboardstyles.css';
 
 const MyRecipes = () => {
   const { setArticles, articles } = useArticleStore();
@@ -42,7 +43,7 @@ const MyRecipes = () => {
   const filteredRecipes = articles.filter((item) => item.author.username === loggedInUser);
 
   return (
-    <div className="flex flex-col items-start justify-start h-screen w-11/12 gap-12 ">
+    <div className="flex flex-col items-start justify-start h-screen w-11/12 gap-12 dashboard-main-background">
       <div className="w-full h-full text-gray-600 flex flex-col items-start pt-16 overflow-y-auto">
         <div className="flex flex-wrap gap-8 ml-4">
           {filteredRecipes.map((item) => (

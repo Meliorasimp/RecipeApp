@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Userprofile from './pages/Userprofile';
 import Navbar from './components/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AppetizerEditor from './pages/AppetizerEditor';
+import TextEditor from './pages/Editor';
 import Cuisines from './pages/Cuisines';
 import Spanish from './pages/cuisinepages/Spanish';
 import Japanese from './pages/cuisinepages/Japanese';
@@ -21,31 +20,39 @@ import American from './pages/cuisinepages/American';
 import Philippines from './pages/cuisinepages/Philippines';
 import Peruvian from './pages/cuisinepages/Peruvian';
 import Ethiopian from './pages/cuisinepages/Ethiopian';
+import { useLoginStore } from './store/loginstore';
+
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const usernameurl = localStorage.getItem('username');
-
+  const { logIn, logOut, isLoggedIn } = useLoginStore();
+  const navigateTo = useNavigate();
 
   const handleLogin = () => { 
     console.log('User logged in');
+    logIn();
   };
+
+  const handleLogout = () => {
+    console.log('User logged out');
+    logOut();
+    navigateTo('/');
+  }
 
   return (
     <div>
-      <BrowserRouter>
-        { isLoggedIn ? null : <Navbar /> }
+        { !isLoggedIn ? <Navbar />  : null}
         <Routes>
           <Route path='/' element={<Homepage hasUserLoggedIn={handleLogin} />} />
           {usernameurl ? (
             <>
-              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile />} />
-              <Route path={`/dashboard/${usernameurl}/appetizeredit`} element={<AppetizerEditor />} />
+              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout}/>} />
+              <Route path={`/dashboard/${usernameurl}/editor`} element={<TextEditor />} />
             </>
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
           )}
-          <Route path='/editor' element={<AppetizerEditor />} />
+          <Route path='/editor' element={<TextEditor />} />
           <Route path='/cuisines' element={<Cuisines />}></Route>
           <Route path='/cuisines/spanish' element={<Spanish />}></Route>  
           <Route path='/cuisines/japanese' element={<Japanese />}></Route>
@@ -63,7 +70,6 @@ const App = () => {
           <Route path='/cuisines/ethiopian' element={<Ethiopian />}></Route>
         </Routes>
         <ToastContainer />
-      </BrowserRouter>
     </div>
   );
 }

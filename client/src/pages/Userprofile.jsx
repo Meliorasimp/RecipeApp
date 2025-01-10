@@ -8,8 +8,9 @@ import Dashboard from '../components/Dashboard';
 import Favorites from '../components/Favorites';
 import MyRecipes from '../components/MyRecipes';
 import UserRecipes from '../components/UserRecipes';
+import '../styles/homepagestyles.css'
 
-const Userprofile = ({handleHomePage}) => {
+const Userprofile = ({handleHomePage, hasUserLoggedOut}) => {
   const [image, setImage] = React.useState('');
   const [imagePreview, setImagePreview] = React.useState('');
   const [isImageUploaded, setIsImageUploaded] = React.useState(false);
@@ -85,18 +86,18 @@ const Userprofile = ({handleHomePage}) => {
   }
 
   return (
-    <div className='flex justify-start items-center dashboard-body-background'>
-      <div className='flex justify-start flex-col items-start h-screen w-32 rounded-xl dashboard-userprofile-background pt-5'>
-        <div className='mt-10 w-full flex flex-col justify-start'>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleDashboardClick}><LayoutDashboard size={32} color='black'/>Dashboard</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleCreateClick}><ChefHat size={28} color='black'/>Create</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleFavoritesClick}><Star size={28} color='black'/>Favorites</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleMyRecipesClick}><Send size={28} color='black'/>My Recipe</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer' onClick={handleUserRecipesClick}><View size={28} color='black'/>View</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-gray-600 cursor-pointer'><LogOut size={24} color='black' className='mr-4' onClick={handleHomePage}/>Logout q</h1>
+    <div className='flex justify-start items-center '>
+      <div className='flex justify-start flex-col items-start h-screen w-32'>
+        <div className='mt-5 w-full flex flex-col justify-start gap-2'>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleDashboardClick}><LayoutDashboard size={32} color='white'/>Dashboard</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleCreateClick}><ChefHat size={28} color='white'/>Create</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleFavoritesClick}><Star size={28} color='white'/>Favorites</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleMyRecipesClick}><Send size={28} color='white'/>My Recipe</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleUserRecipesClick}><View size={28} color='white'/>View</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer'><LogOut size={24} color='white' className='mr-4' onClick={hasUserLoggedOut}/>Logout q</h1>
         </div>
       </div>
-      {isCreateClicked && <Create />}
+      {isCreateClicked && <Create onCancel={handleDashboardClick} />}
       {isDashboardClicked && <Dashboard />}
       {isFavoritesClicked && <Favorites />}
       {isMyRecipesClicked && <MyRecipes />}
