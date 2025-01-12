@@ -31,8 +31,8 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
         })
         const usernameurl = response.data.user.username;
         localStorage.setItem('username', usernameurl);
+        localStorage.setItem('userId', response.data.user.id);
         hasUserLoggedIn();
-        console.log('Calling onLogin with username:', response.data.user);
         Navigate(`/dashboard/${usernameurl}`);
 
       }
