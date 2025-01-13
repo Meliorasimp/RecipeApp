@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/navbarstyles.css'
 import { useNavigate } from 'react-router-dom'
+import { Globe, Smile } from 'lucide-react'
 
 import { Fish, LeafyGreen, Pizza, Ham, Amphora, Salad, Beef, IceCreamBowl, Milk, Wheat, EggFried, Star, Apple, Cherry } from 'lucide-react'
 import NavigationHook from '../hooks/Navigationhook'
@@ -90,7 +91,14 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <h1 className='hover:text-orange-300'>&#x25BC; About</h1>
+            <div className='hover:text-orange-300 about-dropdown cursor-pointer' onClick={() => navigateTo('/about')}>&#x25BC; About
+              <div className='about-dropdown-content'>
+                <div className='flex flex-col gap-2 m-2'>
+                  <h1 className='text-lg cursor-pointer text-white flex flex-row items-center hover:text-orange-300'><Globe className='mr-2' />Website</h1>
+                  <h1 className='text-lg cursor-pointer text-white flex flex-row items-center hover:text-orange-300'><Smile className='mr-2'/>Developer</h1>
+                </div>
+              </div>
+            </div>
             <h1 className='hover:text-orange-300'>&#x25BC; Features</h1>
             <h1 className='hover:text-orange-300'>&#x25BC; Changelog</h1>
         </div>

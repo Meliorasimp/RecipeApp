@@ -28,6 +28,7 @@ const Create = ({onCancel}) => {
     localStorage.setItem('category', category);
     navigate(`/dashboard/${username}/editor`);
   }
+  
   return (
     <div className='flex justify-center items-center flex-col h-screen w-screen dashboard-main-background relative'>
         <form className='flex flex-col items-center justify-between w-10/12 gap-6'>

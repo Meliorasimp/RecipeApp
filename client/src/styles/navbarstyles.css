@@ -9,15 +9,17 @@ body, html {
     z-index: 100;
 }
 
-.cuisine-dropdown {
+.cuisine-dropdown,
+.about-dropdown {
     position: relative;
     display: inline-block;
 }
 
-.cuisine-dropdown-content {
+
+.cuisine-dropdown-content,
+.about-dropdown-content {
     display: none;
     position: absolute;
-    transition: hover 0.5s;
     left: -30px;
     background-color: #292929;
     border-radius: 5px;
@@ -27,6 +29,9 @@ body, html {
     overflow-y: auto;
 }
 
-.cuisine-dropdown:hover .cuisine-dropdown-content {
+.cuisine-dropdown:hover .cuisine-dropdown-content,
+.about-dropdown:hover .about-dropdown-content {
     display: block;
+    max-height: 250px;
+    opacity: 1;
 }

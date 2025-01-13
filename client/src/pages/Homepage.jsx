@@ -18,8 +18,12 @@ const Homepage = ({hasUserLoggedIn}) => {
   return (
     <div className='homepage-background flex justify-center items-center overflow-auto'>
       <div className='flex justify-center items-center mb-48 flex-col overflow-auto relative'>
-        <h1 className='homepage-text-color font-bold text-4xl mb-3'>Create your own Recipe And</h1>
-        <h1 className='homepage-text-color font-bold text-4xl mb-3'>Let others know your culinary Magic!</h1>
+        <div className='inline-block'>
+          <p className='homepage-text-color homepage-first-text'>Create your own Recipe And</p>
+        </div>
+        <div className='inline-block'>
+          <p className='homepage-text-color homepage-second-text'>Let others know your culinary Magic!</p>
+        </div>
         <p className='mb-10'></p>
       </div>
       {showRegister && <Register 
@@ -30,7 +34,7 @@ const Homepage = ({hasUserLoggedIn}) => {
       onLogin={handleLogin}
       hasUserLoggedIn={hasUserLoggedIn}
       />}
-      <button className='homepage-button-color mt-5 w-96 rounded-xl p-3 absolute top-80 text-xl' onClick={handleRegister}>Start Cookin'!</button>
+      <button className='homepage-button-color mt-5 w-96 rounded-xl p-3 absolute font-bold top-80 text-2xl' onClick={handleRegister}>Start Cookin'!</button>
     </div>
   )
 }

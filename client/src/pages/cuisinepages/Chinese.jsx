@@ -134,7 +134,7 @@ const dishes = [
                             { currentIndex === 8 ? null : <button className='absolute right-0 bottom-48' onClick={() => setCurrentIndex(currentIndex + 2)}>&rarr;</button> }
                             <div className='flex gap-4 justify-evenly'> 
                                 {slicedArray.map((dish) => (
-                                    <div key={dish.id} className='w-1/3 h-96 bg-white rounded-md shadow-md homepage-second-background container'>
+                                    <div key={dish.id} className='w-1/3 h-96 bg-white rounded-md shadow-md homepage-second-background article-cards'>
                                         <div className='bg-red-400 h-2/4 w-full rounded-md'>
                                             <img src={dish.image} alt="" className='h-full w-full object-cover rounded-tl-md rounded-tr-md'/>
                                         </div>

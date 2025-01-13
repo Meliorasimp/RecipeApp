@@ -18,7 +18,6 @@ body, html {
 
 .homepage-text-color {
     color: white;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .homepage-button-color {
@@ -37,7 +36,32 @@ body, html {
     list-style-type: number;
 }
 
-.container:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s;
+.homepage-first-text, .homepage-second-text {
+    white-space: nowrap;
+    border-right: 4px solid;
+    font-size: 3rem;
+    font-family: monospace;
+    height: 4rem;
+    width: 100%;
+    overflow: hidden;
+    animation: 
+        typing 2s steps(40, end),
+        cursor .6s step-end infinite alternate;
+}
+
+
+
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }

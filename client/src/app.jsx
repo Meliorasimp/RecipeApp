@@ -21,6 +21,7 @@ import Philippines from './pages/cuisinepages/Philippines';
 import Peruvian from './pages/cuisinepages/Peruvian';
 import Ethiopian from './pages/cuisinepages/Ethiopian';
 import { useLoginStore } from './store/loginstore';
+import About from './pages/About';
 
 
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
           )}
+          <Route path='/about' element={<About />} />
           <Route path='/editor' element={<TextEditor />} />
           <Route path='/cuisines' element={<Cuisines />}></Route>
           <Route path='/cuisines/spanish' element={<Spanish />}></Route>  
