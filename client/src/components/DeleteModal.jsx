@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useArticleStore } from '../store/registerstore.js';
+import { useArticleStore } from '../store/articlestore.js';
 
 const DeleteModal = ({ id, title, handleClose }) => {
 

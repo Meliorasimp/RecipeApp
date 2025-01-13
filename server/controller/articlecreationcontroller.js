@@ -5,15 +5,19 @@ import path from 'path';
 export const createArticle = async (req, res) => { 
     try { 
         const { title, body, category, createdAt, author } = req.body; 
-        const image = req.file.path; 
+        const image = req.file ? `/uploads/${req.file.filename}` : null
         
         if (!title || !body || !category || !createdAt || !author || !image) { 
             console.log('Missing Fields:', { title, body, category, createdAt, author, image }); 
             return res.status(400).json({ message: "Fill in All Fields!" }); 
-        } 
+        }
+
         const newArticle = new ArticleCreationModel({ title, body, image, category, createdAt, author}); 
-        await newArticle.save(); res.status(201).json({ message: "Article Created Successfully" }); }
-     catch (error) { 
+
+        await newArticle.save(); res.status(201).json({ message: "Article Created Successfully" }); 
+    }
+
+     catch (error) {    
         console.error('Error:', error); 
         res.status(500).json({ message: error.message }); 
     } 

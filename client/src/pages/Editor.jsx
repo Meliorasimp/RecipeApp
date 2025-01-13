@@ -43,6 +43,11 @@ const TextEditor = () => {
 
         if(response.status === 201) {
           console.log('Article created');
+          localStorage.removeItem('title');
+          localStorage.removeItem('category');
+          setValue('');
+          setImage('');
+          setIngredients('');
         }
     }
     catch (error) {

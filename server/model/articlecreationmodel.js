@@ -9,8 +9,8 @@ const articlecreationSchema = new mongoose.Schema({
     body: {
         type: String,
         required: true,
-        trim: true,
     },
+    
     category: {
         type: String,
         required: true,

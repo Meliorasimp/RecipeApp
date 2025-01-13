@@ -21,6 +21,7 @@ app.use(cors());
 app.use('/user', registerRoute);
 app.use('/userprofile', userprofileRoute);
 app.use('/article', articleRoute);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))
