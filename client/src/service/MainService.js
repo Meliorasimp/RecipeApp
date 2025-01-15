@@ -12,3 +12,4 @@ export const scrollToId = (id) => {
 }
 
 export const hasConsecutive = (body) => /<p>\s*<\/p>\s*<p>\s*<\/p>/.test(body);
+

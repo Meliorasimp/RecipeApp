@@ -119,6 +119,7 @@ const TextEditor = () => {
           <div className='mt-10 -mb-14 flex justify-around w-full'>
             <button className='bg-red-900 px-10 py-2 rounded-md hover:bg-red-500 transition-all duration-200'>Cancel</button>
             <button className='bg-green-900 px-10 py-2 rounded-md hover:bg-green-500 transition-all duration-200'>Submit</button>
+            
           </div>
         </div>
       </form>

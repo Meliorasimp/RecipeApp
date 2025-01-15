@@ -23,7 +23,7 @@ const Dashboard = () => {
           <h1 className='ml-4 text-3xl font-bold font-sans text-yellow-200'>0</h1>
         </div>
         <div className='col-start-4 col-span-3 dashboard-second-background row-start-3 row-span-2 rounded-lg shadow-md'>
-          <h1 className='mt-4 ml-4 font-bold'>Total Recipes Made</h1>
+          <h1 className='mt-4 ml-4 font-bold'>Total Recipes Published</h1>
           <h1 className='ml-4 text-3xl font-bold font-sans text-yellow-200'>0</h1>
         </div>
         <div className='col-start-7 col-span-4 dashboard-second-background row-start-1 row-span-4 rounded-lg shadow-md'>

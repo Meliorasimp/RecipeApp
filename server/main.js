@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import registerRoute from './routes/userroute.js';
-import userprofileRoute from './routes/userprofileroute.js';
 import articleRoute from './routes/articleroute.js';
 import path from 'path';
 const app = express();
@@ -19,7 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/user', registerRoute);
-app.use('/userprofile', userprofileRoute);
 app.use('/article', articleRoute);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 

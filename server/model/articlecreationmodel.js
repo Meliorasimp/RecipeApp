@@ -10,17 +10,27 @@ const articlecreationSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    
     category: {
+        type: String,
+        required: true,
+    },
+    ingredients: {
         type: String,
         required: true,
     },
     image: {
         type: String,
     },
+    introduction: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
+    },
+    isPublished: {
+        type: Boolean,
+        default: false,
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,

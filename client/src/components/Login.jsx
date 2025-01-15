@@ -34,7 +34,6 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
         localStorage.setItem('userId', response.data.user.id);
         hasUserLoggedIn();
         Navigate(`/dashboard/${usernameurl}`);
-
       }
     }
     catch (error) {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
 .dashboard-main-background {
     background-color: #0A0A0A;
 }
@@ -22,4 +24,34 @@
 
 .show {
     opacity: 1;
+}
+
+.ribbon-container-red, .ribbon-container-green {
+    display: absolute;
+    height: 0;
+    width: 100px;
+}
+
+.ribbon-red {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: 30px solid red;
+    border-right: 15px solid red;
+    border-bottom: 30px solid transparent;
+    border-left: 15px solid red;
+}
+
+.ribbon-green {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: 30px solid rgb(1, 194, 1);
+    border-right: 15px solid rgb(1, 194, 1);
+    border-bottom: 30px solid transparent;
+    border-left: 15px solid rgb(1, 194, 1);
+}
+
+.article-font {
+    font-family: "Inter", serif;
 }

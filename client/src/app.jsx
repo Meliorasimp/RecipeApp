@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Userprofile from './pages/Userprofile';
@@ -22,12 +23,26 @@ import Peruvian from './pages/cuisinepages/Peruvian';
 import Ethiopian from './pages/cuisinepages/Ethiopian';
 import { useLoginStore } from './store/loginstore';
 import About from './pages/About';
+import ArticleViewer from './pages/ArticleViewer';
 
 
 const App = () => {
   const usernameurl = localStorage.getItem('username');
+  const [articleUrl, setArticleUrl] = React.useState('');
+
   const { logIn, logOut, isLoggedIn } = useLoginStore();
   const navigateTo = useNavigate();
+
+  /* Function to handle the article URL
+    Data is being Received from the MyRecipes Component and is being passed to the ArticleViewer Component
+    I'm Still not using useContext :P
+   */
+  
+  const handleArticleUrl = (url) => {
+    setArticleUrl(url);
+
+    console.log('Article URL:', url);
+  }
 
   const handleLogin = () => { 
     console.log('User logged in');
@@ -47,8 +62,9 @@ const App = () => {
           <Route path='/' element={<Homepage hasUserLoggedIn={handleLogin} />} />
           {usernameurl ? (
             <>
-              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout}/>} />
+              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout} handleArticleUrl={handleArticleUrl}/>} />
               <Route path={`/dashboard/${usernameurl}/editor`} element={<TextEditor />} />
+              {articleUrl ? <Route path={`/dashboard/${usernameurl}/${articleUrl}`} element={<ArticleViewer />} /> : null}
             </>
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />

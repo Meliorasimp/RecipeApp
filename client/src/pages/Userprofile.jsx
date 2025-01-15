@@ -10,7 +10,7 @@ import MyRecipes from '../components/MyRecipes';
 import UserRecipes from '../components/UserRecipes';
 import '../styles/homepagestyles.css'
 
-const Userprofile = ({handleHomePage, hasUserLoggedOut}) => {
+const Userprofile = ({ hasUserLoggedOut, handleArticleUrl}) => {
   const [image, setImage] = React.useState('');
   const [imagePreview, setImagePreview] = React.useState('');
   const [isImageUploaded, setIsImageUploaded] = React.useState(false);
@@ -100,7 +100,7 @@ const Userprofile = ({handleHomePage, hasUserLoggedOut}) => {
       {isCreateClicked && <Create onCancel={handleDashboardClick} />}
       {isDashboardClicked && <Dashboard />}
       {isFavoritesClicked && <Favorites />}
-      {isMyRecipesClicked && <MyRecipes />}
+      {isMyRecipesClicked && <MyRecipes handleArticleUrl={handleArticleUrl}/>}
       {isUserRecipesClicked && <UserRecipes />}
     </div>
   );
