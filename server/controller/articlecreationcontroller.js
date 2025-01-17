@@ -91,3 +91,50 @@ export const GetIntroduction = async(req, res) => {
         res.status(404).json({message: error.message});
     }
 }
+
+export const totalRecipesMade = async (req, res) => { 
+    const id = req.params.id; 
+    try { 
+        const result = await ArticleCreationModel.aggregate([ 
+            { $match: { isPublished: true, author: new mongoose.Types.ObjectId(id) } }, 
+            { $group: { _id: null, total: { $sum: 1 } } } 
+        ]); 
+        
+        res.status(200).json(result[0] ? { total: result[0].total } : { total: 0 }); } 
+    catch (error) { 
+        console.error('Error in totalRecipesMade:', error); 
+        res.status(500).json({ message: error.message }); 
+    } 
+};
+
+export const getArticleById = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const article = await ArticleCreationModel.findById(id).populate('author', 'username');
+        if(article) {
+            res.status(200).json(article);
+        }
+        else {
+            res.status(404).json({message: "Article Not Found"});
+        }
+    }
+
+    catch(error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
+export const getAllArticlesExceptUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        if(!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(404).json({message: "Invalid User ID"});
+        }
+        const objectId = new mongoose.Types.ObjectId(id);
+        const articles = await ArticleCreationModel.find({author: {$ne: objectId}}).populate('author','username');
+        res.status(200).json(articles);
+    }
+    catch(error) {
+        res.status(500).json({message: error.message});
+    }
+}

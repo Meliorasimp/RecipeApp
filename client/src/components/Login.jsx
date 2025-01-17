@@ -17,7 +17,7 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
       const response = await axios.post('http://localhost:3000/user/login', {
         email: email,
         password: password
-      })
+      });
       
       if(response.status === 200) {
         toast.success('User logged in successfully!', {

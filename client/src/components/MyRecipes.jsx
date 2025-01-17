@@ -28,8 +28,6 @@ const MyRecipes = ({handleArticleUrl}) => {
     });
   };
 
-
-
   const dateDisplay = (date) => {
     date = new Date(date);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -150,7 +148,8 @@ const MyRecipes = ({handleArticleUrl}) => {
                   <a className="cursor-pointer hover:underline text-white hover:text-blue-500 article-font" onClick={
                     () => { 
                       handleViewArticleNavigation(item._id); 
-                      handleArticleUrl(item._id) }
+                      handleArticleUrl(item._id);
+                     }
                     }>{item.title}</a>
                 </h1>
                 <h5 className="text-xs font-bold ml-6 mt-1 text-white article-font">{item.author.username} | {dateDisplay(item.createdAt)}</h5>

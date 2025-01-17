@@ -11,6 +11,10 @@
     background-color: #151515;
 }
 
+.article-viewer-button {
+    background-color: #333333;
+}
+
 /* CSS KINEME */
 .article-cards:hover {
     box-shadow: 0 6px 12px rgba(255, 255, 255, 0.8);
@@ -54,4 +58,9 @@
 
 .article-font {
     font-family: "Inter", serif;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
 }

@@ -40,7 +40,6 @@ const App = () => {
   
   const handleArticleUrl = (url) => {
     setArticleUrl(url);
-
     console.log('Article URL:', url);
   }
 
@@ -64,7 +63,7 @@ const App = () => {
             <>
               <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout} handleArticleUrl={handleArticleUrl}/>} />
               <Route path={`/dashboard/${usernameurl}/editor`} element={<TextEditor />} />
-              {articleUrl ? <Route path={`/dashboard/${usernameurl}/${articleUrl}`} element={<ArticleViewer />} /> : null}
+              {articleUrl ? <Route path={`/dashboard/${usernameurl}/${articleUrl}`} element={<ArticleViewer articleUrl={articleUrl} />} /> : null}
             </>
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
