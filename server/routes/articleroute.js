@@ -20,6 +20,4 @@ router.get('/getAllArticleExceptUser/:id', getAllArticlesExceptUser);
 
 router.delete('/delete/:id', deleteOneArticle);
 
-
-
 export default router;
