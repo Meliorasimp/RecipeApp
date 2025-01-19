@@ -5,6 +5,10 @@ const CommentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userdata',
     },
+    ArticleId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'articlecreationmodel',
+    },
     Content: {
         type: String,
         required: true,

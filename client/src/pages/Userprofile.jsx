@@ -94,7 +94,7 @@ const Userprofile = ({ hasUserLoggedOut, handleArticleUrl}) => {
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleFavoritesClick}><Star size={28} color='white'/>Favorites</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleMyRecipesClick}><Send size={28} color='white'/>My Recipe</h1>
           <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer' onClick={handleUserRecipesClick}><View size={28} color='white'/>View</h1>
-          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer'><LogOut size={24} color='white' className='mr-4' onClick={hasUserLoggedOut}/>Logout q</h1>
+          <h1 className='hover:bg-gray-400 hover:text-gray-800 flex flex-col items-center justify-center text-sm px-10 py-2 font-bold text-white cursor-pointer'><LogOut size={24} color='white' className='mr-4' onClick={hasUserLoggedOut}/>Logout</h1>
         </div>
       </div>
       {isCreateClicked && <Create onCancel={handleDashboardClick} />}

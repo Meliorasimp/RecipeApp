@@ -7,29 +7,34 @@ const ArticleViewer = ({articleUrl}) => {
   const [article, setArticle] =  React.useState(null);
   const [moreArticles, setMoreArticles] = React.useState([5]);
   const [loading, setLoading] = React.useState(true);
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [currentArticleIndex, setCurrentArticleIndex] = React.useState(0);
+  const [currentCommentIndex, setCurrentCommentIndex] = React.useState(0);
   const [comment, setComment] = React.useState('');
-
-  const userId = localStorage.getItem('userId');
+  const [commentData, setCommentData] = React.useState([5]);
+  const [userId, setUserId] = React.useState(localStorage.getItem('userId'));
   const itemsToShow = 1;
-  const arraysToShow = moreArticles.slice(currentIndex, currentIndex + itemsToShow);
+  const arraysToShow = moreArticles.slice(currentArticleIndex, currentArticleIndex + itemsToShow);
+  const commentsToShow = 1;
+  const commentsArray = commentData.slice(currentCommentIndex, currentCommentIndex + commentsToShow);
+
+  const isAuthor = article && article.author._id === userId;
 
   const dateDisplay = (date) => {
     date = new Date(date);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-PH', options);
   }
+  console.log(article);
 
-  const handleCommentSubmit = async (e, id) => {
+  const handleCommentSubmit = async (e, id, articleUrl) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3000/comment/addComment/${id}`, {
+      const response = await axios.post(`http://localhost:3000/comment/addComment`, {
         Content: comment,
-        id: id,
-      })
-
+        CommenterId: id,
+        ArticleId: articleUrl
+      });
       if(response.status === 201) {
-        console.log('Comment added successfully');
         setComment('');
       }
     }
@@ -42,9 +47,9 @@ const ArticleViewer = ({articleUrl}) => {
     const getArticle = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/article/getArticleById/${articleUrl}`);
-  
         if(response.status === 200) {
           setArticle(response.data);
+          console.log('DATAS', response.data.author._id);
           setLoading(false);
         }
       }
@@ -58,8 +63,8 @@ const ArticleViewer = ({articleUrl}) => {
         const response = await axios.get(`http://localhost:3000/article/getAllArticleExceptUser/${id}`);
         
         if(response.status === 200) {
-          console.log('All Articles:', response.data);
           setMoreArticles(response.data);
+          setLoading(false);
         }
       }
 
@@ -67,9 +72,24 @@ const ArticleViewer = ({articleUrl}) => {
         console.error('Error:', error.message);
       }
     }
+
+    const getCommentsOnArticle = async (id) => {
+      try {
+        const response = await axios.get(`http://localhost:3000/comment/getCommentsOnArticle/${id}`);
+        if(response.status === 200) {
+          setCommentData(response.data);
+          console.log('Comment Data:', response.data);
+        }
+      }
+      catch(error) {
+        console.error('Error:', error.message);
+      }
+    }
+
     getArticle();
-    getAllArticlesExceptUser(userId);
-  }, []);
+    getAllArticlesExceptUser(userId, articleUrl);
+    getCommentsOnArticle(articleUrl); 
+  }, [articleUrl, userId]);
 
   if(loading) {
     return <h1>Loading...</h1>
@@ -77,8 +97,8 @@ const ArticleViewer = ({articleUrl}) => {
   return (
     <div className='flex dashboard-second-background pt-6 pl-6 box-border overflow-hidden relative flex-row'>
       <div className='w-9/12 border-white border-r-2 article-viewer-size'>
-        <h1 className='text-3xl font-bold mb-3'>{article.title}</h1>
-        <p className='text-xl mb-3'>{article.author.username} | {dateDisplay(article.createdAt)} | <span className='font-bold'>{article.category}</span></p>
+        <h1 className='text-3xl font-bold mb-3'>{article && article.title}</h1>
+        <p className='text-xl mb-3'>{article && article.author.username} | {article && dateDisplay(article.createdAt)} | <span className='font-bold'>{article && article.category}</span></p>
         <div className='flex flex-row gap-x-48 items-center'>
           <p className='text-lg mb-3'>Likes: 0</p>
           <p className='text-lg mb-2'>Dislikes: 0</p>
@@ -88,10 +108,10 @@ const ArticleViewer = ({articleUrl}) => {
           <button className='flex items-center article-viewer-button py-1 px-3 white rounded-sm hover:text-black hover:bg-white transition-all duration-200'>Dislike<HeartOff size={20} className='ml-1' /></button>
           <button className='flex items-center article-viewer-button py-1 px-3 white rounded-sm hover:text-black hover:bg-white transition-all duration-200'>Ingredients Needed<MessageSquareWarning size={20} className='ml-1' /></button>
         </div>
-        <div dangerouslySetInnerHTML={{__html: article.body}} className='mt-6 text-justify mr-6 leading-loose text-lg'></div>
-        <div dangerouslySetInnerHTML={{__html: article.ingredients}}></div>
+        <div dangerouslySetInnerHTML={article && {__html: article.body}} className='mt-6 text-justify mr-6 leading-loose text-lg'></div>
+        <div dangerouslySetInnerHTML={article && {__html: article.ingredients}}></div>
         <h1 className='text-center mt-2 mb-2 text-xl font-bold'>The Output of the Recipe Should Look Like this</h1>
-        {article.image ? ( 
+        {article && article.image ? ( 
           <div className='w-1/2 h-96 flex justify-center items-center m-auto'>
             <img src={`http://localhost:3000/uploads/1737107006507-devplaceholder.jpg`} alt="Article" className='object-cover h-full w-full rounded-lg' />
           </div> 
@@ -104,24 +124,32 @@ const ArticleViewer = ({articleUrl}) => {
         {arraysToShow && arraysToShow.map((item) => (
           <div key={item._id} className='w-auto flex flex-col flex-1 '>
             <div className='text-xl mb-2'><a href="" className='text-blue-300 hover:underline'>{item.title}</a></div>
-            <div className='text-lg mb-2'>By: <span className='text-yellow-300 hover:underline cursor-pointer'><a>{item.author.username}</a></span></div>
+            <div className='text-lg mb-2'>By: <span className='text-yellow-300 hover:underline cursor-pointer'><a>{item.author && item.author.username}</a></span></div>
             <div className='text-sm mb-2'>{item.introduction}</div>
             <div className='flex justify-between relative'>
-              <button onClick={() => setCurrentIndex(moreArticles.length > 5 ? currentIndex === 0 : null)} className='fixed'>&larr;</button>
-              <button onClick={() => setCurrentIndex(currentIndex + 1)} className='fixed right-5'>&rarr;</button>
+              <button onClick={() => setCurrentArticleIndex(moreArticles.length > 5 ? currentArticleIndex === 0 : null)} className='fixed'>&larr;</button>
+              <button onClick={() => setCurrentArticleIndex(currentArticleIndex + 1)} className='fixed right-5'>&rarr;</button>
             </div>
           </div>
         ))}
       </div>
       <div className='overflow-y-auto fixed w-80 left-3/4 top-64 ml-6 mr-4 text-lg font-bold'>
-        <h1>Comments:</h1>
-        <div className='text-base w-full h-40 flex justify-center items-center'>No Comments Yet! Be the first to comment!
-          
+        <h1 className='mb-2'>Comments:</h1>
+        <div className='text-base w-full h-40'>
+          {commentsArray && commentsArray.map((item) => (
+            <div key={item._id} className='w-full h-20 flex flex-col'>
+              <div className='flex flex-row gap-x-10 mb-2'>
+                <div className='text-sm'>{item.CommenterId && item.CommenterId.username}</div>
+                <div className='text-sm'>{dateDisplay(item.DateCommented)}</div>  
+              </div>
+              <div className='text-lg flexitems-center'>{item.Content}</div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className='fixed w-80 left-3/4 top-1/2 mt-20 ml-6 mr-4 text-lg font-bold'>
+      {isAuthor ? null : <div className='fixed w-80 left-3/4 top-1/2 mt-20 ml-6 mr-4 text-lg font-bold'>
         <h1 className='mb-2'>Add a Comment</h1>
-        <form onSubmit={(e) => handleCommentSubmit(e, article._id)}>
+        <form onSubmit={(e) => handleCommentSubmit(e, userId, articleUrl)}>
           <textarea 
           name="comment-textarea" 
           id="comment-textarea"
@@ -132,7 +160,7 @@ const ArticleViewer = ({articleUrl}) => {
           ></textarea>
           <button type='submit'>Submit</button>
         </form>
-      </div>
+      </div>}
     </div>
   )
 }
