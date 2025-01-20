@@ -37,7 +37,7 @@ const Dashboard = () => {
   return (
     <div className='pt-4 pr-4 pl-4 h-screen w-full overflow-y-auto dashboard-main-background'>
       <div className='grid grid-cols-10 grid-rows-10 gap-4'>
-        <div className='col-start-1 col-span-6 row-start-1 row-span-2 text-3xl pt-3 pl-3 rounded-xl'>
+        <div className='col-start-1 col-span-6 row-start-1 row-span-2 text-3xl pt-3 pl-3 rounded-xl relative'>
           Welcome Back <span className='text-gray-600 font-bold'>{username}</span>!
           <h1 className='text-xl mt-2 '>{today}</h1>
         </div>

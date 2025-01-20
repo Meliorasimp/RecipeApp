@@ -9,6 +9,8 @@ const ArticleViewer = ({articleUrl}) => {
   const [loading, setLoading] = React.useState(true);
   const [currentArticleIndex, setCurrentArticleIndex] = React.useState(0);
   const [currentCommentIndex, setCurrentCommentIndex] = React.useState(0);
+  const [isDataLoaded, setIsDataLoaded] = React.useState(false);
+  const [cache, setCache] = React.useState({});
   const [comment, setComment] = React.useState('');
   const [commentData, setCommentData] = React.useState([5]);
   const [userId, setUserId] = React.useState(localStorage.getItem('userId'));
@@ -24,7 +26,6 @@ const ArticleViewer = ({articleUrl}) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-PH', options);
   }
-  console.log(article);
 
   const handleCommentSubmit = async (e, id, articleUrl) => {
     e.preventDefault();
@@ -44,12 +45,15 @@ const ArticleViewer = ({articleUrl}) => {
   } 
 
   useEffect(() => {
+    console.log('Article URL:', articleUrl);
+    console.log('User ID:', userId);
+    
     const getArticle = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/article/getArticleById/${articleUrl}`);
         if(response.status === 200) {
           setArticle(response.data);
-          console.log('DATAS', response.data.author._id);
+          cache[articleUrl] = response.data;
           setLoading(false);
         }
       }
@@ -57,22 +61,20 @@ const ArticleViewer = ({articleUrl}) => {
         console.error('Error:', error.message);
       }
     }
-
+    
     const getAllArticlesExceptUser = async (id) => {
       try {
         const response = await axios.get(`http://localhost:3000/article/getAllArticleExceptUser/${id}`);
-        
         if(response.status === 200) {
           setMoreArticles(response.data);
           setLoading(false);
         }
       }
-
       catch(error) {
         console.error('Error:', error.message);
       }
     }
-
+    
     const getCommentsOnArticle = async (id) => {
       try {
         const response = await axios.get(`http://localhost:3000/comment/getCommentsOnArticle/${id}`);
@@ -85,14 +87,23 @@ const ArticleViewer = ({articleUrl}) => {
         console.error('Error:', error.message);
       }
     }
-
-    getArticle();
-    getAllArticlesExceptUser(userId, articleUrl);
-    getCommentsOnArticle(articleUrl); 
+    
+    const fetchData = async () => {
+      setLoading(true);
+      await Promise.all([
+        getArticle(),
+        getAllArticlesExceptUser(userId),
+        getCommentsOnArticle(articleUrl)
+      ]);
+      setIsDataLoaded(true);
+    };
+  
+    fetchData();
   }, [articleUrl, userId]);
+  
 
-  if(loading) {
-    return <h1>Loading...</h1>
+  if (!isDataLoaded) { 
+    return <h1>Data is not loaded yet</h1>; 
   }
   return (
     <div className='flex dashboard-second-background pt-6 pl-6 box-border overflow-hidden relative flex-row'>
@@ -125,7 +136,7 @@ const ArticleViewer = ({articleUrl}) => {
           <div key={item._id} className='w-auto flex flex-col flex-1 '>
             <div className='text-xl mb-2'><a href="" className='text-blue-300 hover:underline'>{item.title}</a></div>
             <div className='text-lg mb-2'>By: <span className='text-yellow-300 hover:underline cursor-pointer'><a>{item.author && item.author.username}</a></span></div>
-            <div className='text-sm mb-2'>{item.introduction}</div>
+            <div className='text-sm mb-2'>{TruncateText(item.introduction, 30)}</div>
             <div className='flex justify-between relative'>
               <button onClick={() => setCurrentArticleIndex(moreArticles.length > 5 ? currentArticleIndex === 0 : null)} className='fixed'>&larr;</button>
               <button onClick={() => setCurrentArticleIndex(currentArticleIndex + 1)} className='fixed right-5'>&rarr;</button>
