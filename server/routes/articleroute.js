@@ -1,4 +1,4 @@
-import { createArticle, getArticlesByUser, deleteOneArticle, publishArticle, GetIntroduction, totalRecipesMade, getArticleById, getAllArticlesExceptUser } from "../controller/articlecreationcontroller.js";
+import { createArticle, getArticlesByUser, deleteOneArticle, publishArticle, GetIntroduction, totalRecipesMade, getArticleById, getAllArticlesExceptUser, getAllArticles } from "../controller/articlecreationcontroller.js";
 import { upload } from "../middleware/imageuploader.js";
 import multer from "multer";
 import express from "express";
@@ -17,6 +17,8 @@ router.get('/getArticleById/:id', getArticleById);
 router.get('/getRecipesMade/:id', totalRecipesMade)
 
 router.get('/getAllArticleExceptUser/:id', getAllArticlesExceptUser);
+
+router.get('/viewarticles', getAllArticles);
 
 router.delete('/delete/:id', deleteOneArticle);
 

@@ -138,3 +138,16 @@ export const getAllArticlesExceptUser = async (req, res) => {
         res.status(500).json({message: error.message});
     }
 }
+
+export const getAllArticles = async (req, res) => {
+    try{
+        const articles = await ArticleCreationModel.find().populate('author', 'username');
+        res.status(200).json(articles);
+        if(!articles) {
+            res.status(404).json({message: "No Articles Found"});
+        }
+    }
+    catch(error) {
+        res.status(500).json({message: error.message});
+    }
+}

@@ -154,7 +154,7 @@ const MyRecipes = ({handleArticleUrl}) => {
                 </h1>
                 <h5 className="text-xs font-bold ml-6 mt-1 text-white article-font">{item.author.username} | {dateDisplay(item.createdAt)}</h5>
                 { item.isPublished ? <h1 key={item._id} className='w-11/12 text-left ml-4 mt-2 text-white article-font font-light'>
-                {(introsToDisplay) ?  (introsToDisplay[item._id]?.intro) : null}
+                {(introsToDisplay) ?  (TruncateText(introsToDisplay[item._id]?.intro, 35)) : null}
                 </h1> :
                   <textarea 
                   className="ml-6 mt-2 mr-6 text-white w-5/6 h-1/4" 
