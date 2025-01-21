@@ -3,9 +3,8 @@ body, html {
 }
 .navbar-background {
     background: #000;
-    border-bottom: 1px solid #292929;
     position: fixed;
-    width: 100%;
+    width: 99%;
     z-index: 100;
 }
 

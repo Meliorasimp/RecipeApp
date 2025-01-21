@@ -16,15 +16,18 @@ const Homepage = ({hasUserLoggedIn}) => {
   }
 
   return (
-    <div className='homepage-background flex justify-center items-center overflow-auto'>
-      <div className='flex justify-center items-center mb-48 flex-col overflow-auto relative'>
-        <div className='inline-block'>
+    <div className='homepage-background flex justify-center items-center'>
+      <div className='mt-20 mb-48 relative pl-20'>
+        <div>
           <p className='homepage-text-color homepage-first-text'>Create your own Recipe And</p>
         </div>
-        <div className='inline-block'>
+        <div>
           <p className='homepage-text-color homepage-second-text'>Let others know your culinary Magic!</p>
         </div>
-        <p className='mb-10'></p>
+        <p className='mb-10 homepage-text-color text-xl leading-relaxed mt-6 w-9/12 text-justify'>Share your unique Recipes and let the World taste your Creativity. 
+        Whether you're a seasoned chef or a home cook, your culinary creations deserve to shine. Connect with fellow food enthusiasts and make your mark 
+        in the Culinary community</p>
+        <button className='hover:underline' onClick={handleRegister}>Start Cookin'! &rarr;</button>
       </div>
       {showRegister && <Register 
       onClose={handleRegister}
@@ -34,7 +37,6 @@ const Homepage = ({hasUserLoggedIn}) => {
       onLogin={handleLogin}
       hasUserLoggedIn={hasUserLoggedIn}
       />}
-      <button className='homepage-button-color mt-5 w-96 rounded-xl p-3 absolute font-bold top-80 text-2xl' onClick={handleRegister}>Start Cookin'!</button>
     </div>
   )
 }

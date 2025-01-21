@@ -106,7 +106,7 @@ const ArticleViewer = ({articleUrl}) => {
     return <h1>Data is not loaded yet</h1>; 
   }
   return (
-    <div className='flex dashboard-second-background pt-6 pl-6 box-border overflow-hidden relative flex-row'>
+    <div className='flex dashboard-second-background pt-6 pl-6 box-border relative flex-row'>
       <div className='w-9/12 border-white border-r-2 article-viewer-size'>
         <h1 className='text-3xl font-bold mb-3'>{article && article.title}</h1>
         <p className='text-xl mb-3'>{article && article.author.username} | {article && dateDisplay(article.createdAt)} | <span className='font-bold'>{article && article.category}</span></p>

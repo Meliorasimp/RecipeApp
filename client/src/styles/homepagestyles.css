@@ -1,12 +1,16 @@
-body, html { 
-    overflow: auto; 
+body { 
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 .homepage-background {
-    background-color: #141414;
+    background-color: #000000;
     background-size:cover;
     background-repeat: no-repeat;
     height:100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .homepage-second-background {
@@ -38,30 +42,22 @@ body, html {
 
 .homepage-first-text, .homepage-second-text {
     color: white;
-    text-shadow: 0 0 3px #fff;
-    white-space: nowrap;
-    border-right: 4px solid;
     font-size: 3rem;
     font-family: monospace;
-    height: 4rem;
-    width: 100%;
-    overflow: hidden;
-    animation: 
-        typing 2s steps(40, end),
-        cursor .6s step-end infinite alternate;
+}
+.arrow-left { 
+    width: 0; 
+    height: 0; 
+    border-top: 
+    10px solid transparent; 
+    border-bottom: 10px solid transparent; 
+    border-right: 20px solid #fff; 
 }
 
-@keyframes cursor {
-    50% {
-        border-color: transparent;
-    }
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+.blur-background { 
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(60px); 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
