@@ -78,12 +78,12 @@ const Register = ({onClose, onLogin}) => {
     className='absolute inset-0 flex justify-center items-center z-10'
     >
       <div className='absolute inset-0 flex justify-center items-center z-10'>
-        <div className='flex flex-row w-3/5 h-96 justify-between items-center rounded-xl register-background-color'>
+        <div className='flex flex-row w-3/5 h-96 justify-between items-center rounded-xl blur-background'>
           <div className='flex justify-center items-center h-full w-2/5 flex-col pl-10 pr-10'>
-            <h1 className='register-font-color text-3xl font-extrabold text-left'>Join Us!</h1>
-            <h5 className='mt-5 register-font-color font-bold text-2xl'>Whip Up Wonders at Home: Discover, Share, and Savor!</h5>
+            <h1 className='text-3xl text-left'>Join Us!</h1>
+            <h5 className='mt-5 text-2xl'>Whip Up Wonders at Home: Discover, Share, and Savor!</h5>
           </div>
-          <div className='register-second-background-color h-full w-3/5 rounded-xl flex justify-center items-center'>
+          <div className='h-full w-3/5 rounded-xl flex justify-center items-center'>
             <div className='flex justify-center items-center'>
               <form className='flex flex-col' onSubmit={handleRegisterSubmit}>
                 <label htmlFor="username" className='text-xl'>Username</label>

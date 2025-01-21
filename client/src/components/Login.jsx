@@ -58,8 +58,8 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
   return (
     <div>
       <div className='absolute inset-0 flex justify-center items-center z-10'>
-        <div className='flex flex-row w-3/5 h-96 justify-between items-center rounded-xl register-background-color'>
-          <div className='login-second-background-color h-full w-3/5 rounded-xl flex justify-center items-center'>
+        <div className='flex flex-row w-3/5 h-96 justify-between items-center rounded-xl blur-background'>
+          <div className='h-full w-3/5 rounded-xl flex justify-center items-center'>
             <div className='flex justify-center items-center'>
               <form className='flex flex-col' onSubmit={handleLoginSubmit}>
                 <label htmlFor="email" className='text-xl'>Email</label>
@@ -83,9 +83,8 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
               </form>
             </div>
           </div>
-          <div className='flex justify-center items-center h-full w-2/5 flex-col pl-10 pr-10'>
-            <h1>Welcome Back!</h1>
-            <h5>Let's Get Cookin'</h5>
+          <div className='flex justify-center items-center h-full w-2/4'>
+          <p className='text-2xl'>Welcome Back Nigger!</p>
           </div>
         </div>
       </div> 

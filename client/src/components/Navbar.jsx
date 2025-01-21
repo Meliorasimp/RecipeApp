@@ -10,12 +10,12 @@ const Navbar = () => {
   const navigateTo = NavigationHook()
 
   return (
-    <div className='navbar-background z-50'>
+    <div className='navbar-background z-50 w-'>
       <div className='flex justify-between items-center m-2'>
         <h1 className='sm:text-sm lg:font-bold lg:text-lg ml-1 cursor-pointer' onClick={() => navigateTo('/')}>Épicurienne</h1>
         <div className='flex gap-10 mr-2 justify-center items-center'>
-            <h1 className='hover:text-orange-300'> &#x25BC; Top Rated Recipes</h1>
-            <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown' onClick={() => navigateTo('/cuisines')}>&#x25BC; Cuisines
+            <h1 className='hover:text-orange-300 font-light'>Top Rated Recipes</h1>
+            <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown font-light' onClick={() => navigateTo('/cuisines')}>Cuisines
               <div className='cuisine-dropdown-content'>
                 <div className='flex flex-col'>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
@@ -91,7 +91,7 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <div className='hover:text-orange-300 about-dropdown cursor-pointer' onClick={() => navigateTo('/about')}>&#x25BC; About
+            <div className='hover:text-orange-300 about-dropdown cursor-pointer font-light' onClick={() => navigateTo('/about')}> About
               <div className='about-dropdown-content'>
                 <div className='flex flex-col gap-2 m-2'>
                   <h1 className='text-lg cursor-pointer text-white flex flex-row items-center hover:text-orange-300'><Globe className='mr-2' />Website</h1>
@@ -99,11 +99,10 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <h1 className='hover:text-orange-300'>&#x25BC; Features</h1>
-            <h1 className='hover:text-orange-300'>&#x25BC; Changelog</h1>
+            <h1 className='hover:text-orange-300 font-light'>Features</h1>
         </div>
         <div>
-          <h1 className='mr-10'>Log-in</h1>
+          <h1 className='mr-10'>Changelog</h1>
         </div>
       </div>
     </div>
