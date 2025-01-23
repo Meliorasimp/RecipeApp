@@ -1,5 +1,6 @@
 body { 
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -8,7 +9,7 @@ body {
     background-color: #000000;
     background-size:cover;
     background-repeat: no-repeat;
-    height:100vh;
+    height: 100vh;
     width: 100vw;
     overflow-x: hidden;
 }
@@ -43,7 +44,7 @@ body {
 .homepage-first-text, .homepage-second-text {
     color: white;
     font-size: 3rem;
-    font-family: monospace;
+    font-family: Inter;
 }
 .arrow-left { 
     width: 0; 

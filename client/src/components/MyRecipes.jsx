@@ -21,7 +21,7 @@ const MyRecipes = ({handleArticleUrl}) => {
   const [id , setId] = useState('');
   const [recipeTitle, setRecipeTitle] = useState('');
 
-  const handleIntroductionChange = async (id, introvalue) => {
+  const handleIntroductionChange = (id, introvalue) => {
     setIntroduction({
       ...introduction,
       [id]: introvalue
@@ -127,11 +127,11 @@ const MyRecipes = ({handleArticleUrl}) => {
   
 
   return (
-    <div className="flex flex-col items-start justify-start h-screen w-screen dashboard-main-background">
-      <div className="w-full h-full text-gray-600 flex flex-wrap items-start">
-        <div className="flex flex-wrap justify-start pl-4 pt-4 gap-8 h-full w-full overflow-y-auto">
+    <div className="h-screen w-screen dashboard-main-background">
+      <div className="w-full h-full">
+        <div className="flex flex-wrap pl-4 pt-4 gap-8 h-full w-full overflow-y-auto">
           {filteredRecipes.map((item) => (
-            <ul key={item._id} className="relative w-1/4 h-3/4 mb-4 article-cards">
+            <ul key={item._id} className="relative w-1/4 h-3/4 mb-4 article-cards ">
               <div className="h-full dashboard-second-background rounded-sm shadow-md font-serif relative">
                 {item.isPublished ? 
                 <div className='ribbon-container-green'>
@@ -160,7 +160,6 @@ const MyRecipes = ({handleArticleUrl}) => {
                   className="ml-6 mt-2 mr-6 text-white w-5/6 h-1/4" 
                   placeholder='Add an Introduction to your Article' 
                   value={introduction[item._id] || ''} 
-                  onClick={console.log(item._id)}
                   onChange={(e) => handleIntroductionChange(item._id, e.target.value)}>
                   </textarea>
                 }
