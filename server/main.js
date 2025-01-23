@@ -6,6 +6,7 @@ import cors from 'cors';
 import registerRoute from './routes/userroute.js';
 import articleRoute from './routes/articleroute.js';
 import commentRoute from './routes/commentroute.js';
+import likeRoute from './routes/likeroute.js';
 import path from 'path';
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/user', registerRoute);
 app.use('/article', articleRoute);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/comment', commentRoute);
+app.use('/likedislike', likeRoute);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))

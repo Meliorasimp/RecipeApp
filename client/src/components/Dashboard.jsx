@@ -20,7 +20,6 @@ const Dashboard = () => {
     try {
       const response = await axios.get(`http://localhost:3000/article/getRecipesMade/${id}`);
       if (response.status === 200) {
-        console.log(response.data.total);
         setRecipesMade(response.data.total);
       }
     }
