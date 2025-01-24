@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#root {
+    height: 100%;
+}
 .dashboard-main-background {
     background-color: #0A0A0A;
 }
@@ -68,4 +76,9 @@
 .allArticles-cards:hover {
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
     transition: box-shadow 0.3s ease-in-out;
+}
+
+.article-viewer-height {
+    height: 100%;
+    background-color: #1f1f1f;
 }
