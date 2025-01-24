@@ -106,8 +106,8 @@ const ArticleViewer = ({articleUrl}) => {
     return <h1>Data is not loaded yet</h1>; 
   }
   return (
-    <div className='flex dashboard-second-background pt-6 pl-6 box-border relative flex-row'>
-      <div className='w-9/12 border-white border-r-2 article-viewer-size'>
+    <div className='flex dashboard-second-background pl-6 box-border relative flex-row'>
+      <div className='w-9/12 border-l-slate-200 border-r-2 article-viewer-size pt-6 '>
         <h1 className='text-3xl font-bold mb-3'>{article && article.title}</h1>
         <p className='text-xl mb-3'>{article && article.author.username} | {article && dateDisplay(article.createdAt)} | <span className='font-bold'>{article && article.category}</span></p>
         <div className='flex flex-row gap-x-48 items-center'>
@@ -130,21 +130,7 @@ const ArticleViewer = ({articleUrl}) => {
           : ( <div>No image available</div> )
           }
       </div>
-      <div className='overflow-y-auto fixed w-auto left-3/4 ml-6 mr-4 text-lg font-bold '>
-      <h1 className=''>Check out Other Articles</h1>
-        {arraysToShow && arraysToShow.map((item) => (
-          <div key={item._id} className='w-auto flex flex-col flex-1 '>
-            <div className='text-xl mb-2'><a href="" className='text-blue-300 hover:underline'>{item.title}</a></div>
-            <div className='text-lg mb-2'>By: <span className='text-yellow-300 hover:underline cursor-pointer'><a>{item.author && item.author.username}</a></span></div>
-            <div className='text-sm mb-2'>{TruncateText(item.introduction, 30)}</div>
-            <div className='flex justify-between relative'>
-              <button onClick={() => setCurrentArticleIndex(moreArticles.length > 5 ? currentArticleIndex === 0 : null)} className='fixed'>&larr;</button>
-              <button onClick={() => setCurrentArticleIndex(currentArticleIndex + 1)} className='fixed right-5'>&rarr;</button>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className='overflow-y-auto fixed w-80 left-3/4 top-64 ml-6 mr-4 text-lg font-bold'>
+      <div className='overflow-y-auto fixed w-80 left-3/4 top-6 ml-6 mr-4 text-lg font-bold'>
         <h1 className='mb-2'>Comments:</h1>
         <div className='text-base w-full h-40'>
           {commentsArray && commentsArray.map((item) => (
@@ -158,20 +144,6 @@ const ArticleViewer = ({articleUrl}) => {
           ))}
         </div>
       </div>
-      {isAuthor ? null : <div className='fixed w-80 left-3/4 top-1/2 mt-20 ml-6 mr-4 text-lg font-bold'>
-        <h1 className='mb-2'>Add a Comment</h1>
-        <form onSubmit={(e) => handleCommentSubmit(e, userId, articleUrl)}>
-          <textarea 
-          name="comment-textarea" 
-          id="comment-textarea"
-          className='w-11/12 h-44 ml-2'
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          aria-label="Submit your comment"
-          ></textarea>
-          <button type='submit'>Submit</button>
-        </form>
-      </div>}
     </div>
   )
 }

@@ -24,12 +24,13 @@ import Ethiopian from './pages/cuisinepages/Ethiopian';
 import { useLoginStore } from './store/loginstore';
 import About from './pages/About';
 import ArticleViewer from './pages/ArticleViewer';
+import AllArticleViewer from './pages/AllArticleViewer';
 
 
 const App = () => {
   const usernameurl = localStorage.getItem('username');
   const [articleUrl, setArticleUrl] = React.useState('');
-
+  const [articleId, setArticleId] = React.useState('');
   const { logIn, logOut, isLoggedIn } = useLoginStore();
   const navigateTo = useNavigate();
 
@@ -37,19 +38,20 @@ const App = () => {
     Data is being Received from the MyRecipes Component and is being passed to the ArticleViewer Component
     I'm Still not using useContext :P
    */
-  
+
+  const handleArticleId = (id) => {
+    setArticleId(id);
+    console.log('Article ID:', id);
+  }
   const handleArticleUrl = (url) => {
     setArticleUrl(url);
-    console.log('Article URL:', url);
   }
 
   const handleLogin = () => { 
-    console.log('User logged in');
     logIn();
   };
 
   const handleLogout = () => {
-    console.log('User logged out');
     logOut();
     navigateTo('/');
   }
@@ -61,9 +63,10 @@ const App = () => {
           <Route path='/' element={<Homepage hasUserLoggedIn={handleLogin} />} />
           {usernameurl ? (
             <>
-              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout} handleArticleUrl={handleArticleUrl}/>} />
+              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout} handleArticleUrl={handleArticleUrl} handleArticleId={handleArticleId} />} />
               <Route path={`/dashboard/${usernameurl}/editor`} element={<TextEditor />} />
-              {articleUrl ? <Route path={`/dashboard/${usernameurl}/${articleUrl}`} element={<ArticleViewer articleUrl={articleUrl} />} /> : null}
+              { articleUrl ? <Route path={`/dashboard/${usernameurl}/${articleUrl}`} element={<ArticleViewer articleUrl={articleUrl}  />} /> : null }
+              { articleId ? <Route path={`/dashboard/${usernameurl}/${articleId}`} element={<AllArticleViewer articleId={articleId} />} /> : null }
             </>
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />

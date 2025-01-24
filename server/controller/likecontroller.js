@@ -43,24 +43,37 @@ export const likeArticle = async (req, res) => {
 
 export const dislikeArticle = async (req, res) => {
     const { user, articleId, type } = req.body;
-    try {
 
+    try {
         let message;
 
         const dislike = await LikeModel.findOne({ articleId, user });
+        const articleObjectId = new mongoose.Types.ObjectId(articleId);
+
         if (dislike) {
             if (dislike.type === type) {
-                await LikeModel.findOneAndDelete({ articleId, user, type });
+                await LikeModel.deleteOne({ articleId: articleObjectId, user, type });
                 message = 'Dislike Removed';
             } else {
-                await LikeModel.findOneAndUpdate({ articleId, user, type });
+                await LikeModel.updateOne({ articleId: articleObjectId, user }, { $set: { type } });
                 message = 'Dislike Updated';
             }
         } else {
-            const newDislike = new LikeModel({ user, articleId, type });
+            const newDislike = new LikeModel({ user, articleId: articleObjectId, type });
             await newDislike.save();
             message = 'Dislike Added';
         }
+
+        const totalDislikes = await LikeModel.aggregate([
+            { $match: { articleId: articleObjectId, type: 'dislike' } },
+            { $group: { _id: '$articleId', totalDislikes: { $sum: 1 } } }
+        ]);
+
+        const dislikesCount = totalDislikes.length > 0 ? totalDislikes[0].totalDislikes : 0;
+
+        console.log('Total Dislikes:', dislikesCount);
+
+        return res.status(200).json({ message, totalDislikes: dislikesCount });
     } catch (error) {
         console.error('Error:', error.message);
         return res.status(500).json({ message: 'Internal server error' });
