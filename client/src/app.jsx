@@ -28,7 +28,7 @@ import AllArticleViewer from './pages/AllArticleViewer';
 
 
 const App = () => {
-  const usernameurl = localStorage.getItem('username');
+  const [usernameurl, setUsernameUrl] = React.useState(localStorage.getItem('username'));
   const [articleUrl, setArticleUrl] = React.useState('');
   const [articleId, setArticleId] = React.useState('');
   const { logIn, logOut, isLoggedIn } = useLoginStore();

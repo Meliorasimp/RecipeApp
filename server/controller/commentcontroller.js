@@ -5,6 +5,10 @@ export const addComment = async (req, res) => {
     const CommenterId = req.body.CommenterId;
     const ArticleId = req.body.ArticleId;
 
+    console.log('CommenterId:', CommenterId);
+    console.log('Content:', Content);
+    console.log('ArticleId:', ArticleId);
+    
     //Add a Comment to the Article using the CommenterId, Content and ArticleId
     try {
         const newComment = new CommentModel({ CommenterId: CommenterId,  Content, ArticleId:ArticleId, DateCommented: Date.now() });

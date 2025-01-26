@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import '../styles/registerstyles.css'
+
 import axios from 'axios'
 import { useRegisterStore } from '../store/registerstore'
 import { useNavigate } from 'react-router-dom'

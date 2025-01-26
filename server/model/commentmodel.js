@@ -4,10 +4,12 @@ const CommentSchema = new mongoose.Schema({
     CommenterId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userdata',
+        required: true,
     },
     ArticleId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'articlecreationmodel',
+        required: true,
     },
     Content: {
         type: String,

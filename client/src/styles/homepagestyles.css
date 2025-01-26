@@ -6,9 +6,16 @@ body {
     margin: 0;
 }
 .homepage-background {
-    background-color: #000000;
+    background: linear-gradient(to right, #222222, #000000);
     background-size:cover;
     background-repeat: no-repeat;
+    height: 190vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.cuisines-background {
+    background: linear-gradient(to right, #222222, #000000);
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
@@ -61,4 +68,22 @@ body {
     border-radius: 10px; 
     padding: 20px; 
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Add this to your CSS file (e.g., App.css) */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.icon-glow {
+    animation: glow 1.5s infinite;
+    color: #FFD700; /* Example color (Gold) */
 }

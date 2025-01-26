@@ -17,6 +17,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors());
 
 app.use('/user', registerRoute);
@@ -24,6 +25,10 @@ app.use('/article', articleRoute);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/comment', commentRoute);
 app.use('/likedislike', likeRoute);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+})
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(console.log('Connected to MongoDB'))
