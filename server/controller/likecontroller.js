@@ -71,8 +71,6 @@ export const dislikeArticle = async (req, res) => {
 
         const dislikesCount = totalDislikes.length > 0 ? totalDislikes[0].totalDislikes : 0;
 
-        console.log('Total Dislikes:', dislikesCount);
-
         return res.status(200).json({ message, totalDislikes: dislikesCount });
     } catch (error) {
         console.error('Error:', error.message);

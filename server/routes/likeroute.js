@@ -6,5 +6,4 @@ router.post('/likearticle', likeArticle);
 
 router.post('/dislikearticle', dislikeArticle);
 
-
 export default router;

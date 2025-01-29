@@ -19,8 +19,6 @@ const ArticleViewer = ({articleUrl}) => {
   const commentsToShow = 1;
   const commentsArray = commentData.slice(currentCommentIndex, currentCommentIndex + commentsToShow);
 
-  const isAuthor = article && article.author._id === userId;
-
   const dateDisplay = (date) => {
     date = new Date(date);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -45,9 +43,6 @@ const ArticleViewer = ({articleUrl}) => {
   } 
 
   useEffect(() => {
-    console.log('Article URL:', articleUrl);
-    console.log('User ID:', userId);
-    
     const getArticle = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/article/getArticleById/${articleUrl}`);
@@ -99,7 +94,7 @@ const ArticleViewer = ({articleUrl}) => {
     };
   
     fetchData();
-  }, [articleUrl, userId]);
+  }, [article]);
   
 
   if (!isDataLoaded) { 

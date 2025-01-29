@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/navbarstyles.css'
 import { useNavigate } from 'react-router-dom'
-import { Globe, Smile } from 'lucide-react'
+import { Globe, Smile, ChevronDown, Moon, UtensilsCrossed } from 'lucide-react'
 
 import { Fish, LeafyGreen, Pizza, Ham, Amphora, Salad, Beef, IceCreamBowl, Milk, Wheat, EggFried, Star, Apple, Cherry } from 'lucide-react'
 import NavigationHook from '../hooks/Navigationhook'
@@ -15,7 +15,10 @@ const Navbar = () => {
         <h1 className='sm:text-sm lg:font-bold lg:text-lg ml-1 cursor-pointer' onClick={() => navigateTo('/')}>Épicurienne</h1>
         <div className='flex gap-10 mr-2 justify-center items-center'>
             <h1 className='hover:text-orange-300 font-light'>Top Rated Recipes</h1>
-            <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown font-light' onClick={() => navigateTo('/cuisines')}>Cuisines
+            <div className='cursor-pointer hover:text-orange-300 cuisine-dropdown font-light'>
+              <div className='flex flex-row' onClick={() => navigateTo('/cuisines')}>
+               Cuisines <ChevronDown />
+              </div>
               <div className='cuisine-dropdown-content'>
                 <div className='flex flex-col'>
                 <h1 className='lg:text-white flex items-center cursor-pointer text-lg mt-2 ml-2 hover:text-orange-300' 
@@ -91,7 +94,10 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <div className='hover:text-orange-300 about-dropdown cursor-pointer font-light' onClick={() => navigateTo('/about')}> About
+            <div className='hover:text-orange-300 about-dropdown cursor-pointer font-light'> 
+              <div className='flex flex-row' onClick={() => navigateTo('/about')}>
+               About <ChevronDown />
+              </div>
               <div className='about-dropdown-content'>
                 <div className='flex flex-col gap-2 m-2'>
                   <h1 className='text-lg cursor-pointer text-white flex flex-row items-center hover:text-orange-300'><Globe className='mr-2' />Website</h1>
@@ -99,10 +105,12 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <h1 className='hover:text-orange-300 font-light'>Features</h1>
+            <div className='flex flex-row cursor-pointer'>
+               Features
+            </div>
         </div>
         <div>
-          <h1 className='mr-10'>Changelog</h1>
+          <h1 className='mr-10 cursor-pointer font-bold flex flex-row items-center'><span className='mr-2'>Dark Mode</span> <Moon /></h1>
         </div>
       </div>
     </div>

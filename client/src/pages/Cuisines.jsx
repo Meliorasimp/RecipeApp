@@ -5,7 +5,7 @@ const Cuisines = () => {
   const navigate = NavigationHook()
 
   return (
-    <div className='homepage-background flex justify-center items-center relative flex-col'>
+    <div className='h-screen cuisines-background flex justify-center items-center relative flex-col'>
         <h1 className='mb-4 mt-4 absolute top-12 homepage-text-color font-bold text-3xl'>Explore the <span className='text-yellow-300'>Flavors</span> of the World</h1>
       <div className='flex justify-center items-center flex-col h-3/4 mt-10 w-3/4 gap-10'>
         <div className='flex justify-evenly items-center flex-row gap-10 w-full'>

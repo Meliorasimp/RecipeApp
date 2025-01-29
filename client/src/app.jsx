@@ -28,7 +28,7 @@ import AllArticleViewer from './pages/AllArticleViewer';
 
 
 const App = () => {
-  const usernameurl = localStorage.getItem('username');
+  const [usernameurl, setUsernameUrl] = React.useState(localStorage.getItem('username'));
   const [articleUrl, setArticleUrl] = React.useState('');
   const [articleId, setArticleId] = React.useState('');
   const { logIn, logOut, isLoggedIn } = useLoginStore();
@@ -41,7 +41,6 @@ const App = () => {
 
   const handleArticleId = (id) => {
     setArticleId(id);
-    console.log('Article ID:', id);
   }
   const handleArticleUrl = (url) => {
     setArticleUrl(url);
@@ -63,10 +62,10 @@ const App = () => {
           <Route path='/' element={<Homepage hasUserLoggedIn={handleLogin} />} />
           {usernameurl ? (
             <>
-              <Route path={`/dashboard/${usernameurl}`} element={<Userprofile hasUserLoggedOut={handleLogout} handleArticleUrl={handleArticleUrl} handleArticleId={handleArticleId} />} />
-              <Route path={`/dashboard/${usernameurl}/editor`} element={<TextEditor />} />
-              { articleUrl ? <Route path={`/dashboard/${usernameurl}/${articleUrl}`} element={<ArticleViewer articleUrl={articleUrl}  />} /> : null }
-              { articleId ? <Route path={`/dashboard/${usernameurl}/${articleId}`} element={<AllArticleViewer articleId={articleId} />} /> : null }
+              <Route path={`/dashboard/:username`} element={<Userprofile hasUserLoggedOut={handleLogout} handleArticleUrl={handleArticleUrl} handleArticleId={handleArticleId} />} />
+              <Route path={`/dashboard/:username/editor`} element={<TextEditor />} />
+              <Route path={`/dashboard/:username/:articleUrl`} element={<ArticleViewer articleUrl={articleUrl}  />} />
+              <Route path={`/dashboard/:userid/:articleid/:randomNumber`} element={<AllArticleViewer />} />
             </>
           ) : (
             <Route path="*" element={<div>Please log in to access the dashboard.</div>} />
