@@ -8,6 +8,7 @@ import DeleteModal from './DeleteModal.jsx';
 import axios from 'axios';
 import '../styles/dashboardstyles.css';
 import { TruncateText } from '../service/MainService.js';
+import { useNavigate } from 'react-router-dom';
 
 const MyRecipes = ({handleArticleUrl}) => {
   const { setArticles, articles, publishArticle, UnpublishArticle } = useArticleStore();
@@ -20,6 +21,7 @@ const MyRecipes = ({handleArticleUrl}) => {
   const [introduction, setIntroduction] = useState({});
   const [id , setId] = useState('');
   const [recipeTitle, setRecipeTitle] = useState('');
+  const Navigate = useNavigate();
 
   const handleIntroductionChange = (id, introvalue) => {
     setIntroduction({
@@ -93,10 +95,6 @@ const MyRecipes = ({handleArticleUrl}) => {
     }
   }
 
-  const handleViewArticleNavigation = (id) => {
-    navigateTo(`/dashboard/${loggedInUser}/${id}`);
-  }
-
   const handleClose = () => {
     setIsDeleteClicked(false);
   }
@@ -147,7 +145,7 @@ const MyRecipes = ({handleArticleUrl}) => {
                 <h1 className="text-lg font-bold pt-3 ml-6 mr-6">
                   <a className="cursor-pointer hover:underline text-white hover:text-blue-500 article-font" onClick={
                     () => { 
-                      handleViewArticleNavigation(item._id); 
+                      Navigate(`/dashboard/${item.author.username}/${item._id}`); 
                       handleArticleUrl(item._id);
                      }
                     }>{item.title}</a>

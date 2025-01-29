@@ -4,8 +4,10 @@ import '../styles/dashboardstyles.css';
 import { Heart, HeartOff } from 'lucide-react'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useLikeStore } from '../store/likestore';
 
 const AllArticleViewer = () => {
+    const { setLikes, setDislikes } = useLikeStore();
     const [articles, setArticles] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [articleId, setArticleId] = React.useState(localStorage.getItem('articleId'));
@@ -29,7 +31,7 @@ const AllArticleViewer = () => {
           type: 'like',
         });
         if(response.status === 200) {
-          console.log('Response:', response.data);
+          setLikes(response.data.totalLikes, articleId  );
           toast.success(response.data.message, {
             position: 'top-center',
             autoClose: 1000,
@@ -56,6 +58,7 @@ const AllArticleViewer = () => {
           type: 'dislike',
         })
         if(response.status === 200) {
+          setDislikes(response.data.totalDislikes, articleId);
           toast.success(response.data.message, {
             position: 'top-center',
             autoClose: 1000,

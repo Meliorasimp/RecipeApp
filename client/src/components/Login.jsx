@@ -3,11 +3,11 @@ import '../styles/loginstyles.css'
 import axios from 'axios'
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const Login = ({onLogin, hasUserLoggedIn}) => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-
   const Navigate = useNavigate();
 
   const handleLoginSubmit = async(e) => {
@@ -33,7 +33,7 @@ const Login = ({onLogin, hasUserLoggedIn}) => {
         localStorage.setItem('username', usernameurl);
         localStorage.setItem('userId', response.data.user.id);
         hasUserLoggedIn();
-        Navigate(`/dashboard/${usernameurl}`);
+        Navigate(`/dashboard/${response.data.user.username}`);
       }
     }
     catch (error) {
